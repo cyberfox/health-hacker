@@ -1,0 +1,193 @@
+<!-- sample post_condition -->
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">THE NOTICE'S TITLE</title>
+  <content type="text">THE NOTICES SUBJECT LINE</content>
+
+  <ContinuityOfCareRecord xmlns="urn:astm-org:CCR">
+      <Body>
+       <Problems>
+        <Problem>
+          <DateTime>
+            <Type><Text>Start date</Text></Type>
+            <ExactDateTime>2007-04-04T07:00:00Z</ExactDateTime>
+          </DateTime>
+          <Description>
+            <Text>Aortic valve disorders</Text>
+            <Code>
+              <Value>410.10</Value>
+              <CodingSystem>ICD9</CodingSystem>
+              <Version>2004</Version>
+            </Code>
+          </Description>
+          <Status><Text>Active</Text></Status>
+          <Source>
+            <Actor>
+              <ActorID>Cecil Baker</ActorID>
+            </Actor>
+             <ActorRole>
+                <Text>Treating clinician</Text>
+              </ActorRole>
+          </Source>
+        </Problem>
+      </Problems>
+      </Body>
+    </ContinuityOfCareRecord>
+</entry>
+
+<!-- guessed-at sample post_test -->
+
+POST to https://www.google.com/health/feeds/register/ui/cyberfox
+
+Content-Type: application/atom+xml
+Authorization: GoogleLogin auth=yourAuthToken
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Health Hacker Recording</title>
+  <content type="text">Blood Glucose Update</content>
+
+  <ContinuityOfCareRecord xmlns="urn:astm-org:CCR">
+    <Body>
+      <Results>
+        <Result>
+          <Test>
+            <DateTime>
+              <Type><Text>Date logged</Text></Type>
+              <ExactDateTime>2010-06-04T01:23:45Z</ExactDateTime>
+            </DateTime>
+            <Description>
+              <Text>Glucose, Blood</Text>
+              <Code>
+                <Value>7.6164</Value>
+                <CodingSystem>Google</CodingSystem>
+              </Code>
+            </Description>
+            <Source>
+              <Actor>
+                <ActorID>cyberfox@gmail.com</ActorID>
+                <ActorRole>
+                  <Text>Patient</Text>
+                </ActorRole>
+              </Actor>
+            </Source>
+            <TestResult>
+              <Value>80</Value>
+              <Units>
+                <Unit>mg/dl</Unit>
+              </Units>
+            </TestResult>
+          </Test>
+        </Result>
+      </Results>
+    </Body>
+  </ContinuityOfCareRecord>
+</entry>
+
+<!-- sample test response -->
+
+<ContinuityOfCareRecord xmlns="urn:astm-org:CCR">
+<CCRDocumentObjectID>Cn_2P2gN1BA</CCRDocumentObjectID>
+<Language>
+    <Text>English</Text>
+    <Code>
+        <Value>en</Value>
+        <CodingSystem>ISO-639-1</CodingSystem>
+    </Code>
+</Language>
+<Version>V1.0</Version>
+<DateTime>
+    <ExactDateTime>2009-09-18T19:13:38.110Z</ExactDateTime>
+</DateTime>
+<Patient>
+    <ActorID>Google Health Profile</ActorID>
+</Patient>
+<From>
+    <ActorLink>
+        <ActorID>Google Health</ActorID>
+        <ActorRole>
+            <Text>PHR</Text>
+        </ActorRole>
+    </ActorLink>
+</From>
+<Body>
+    <Results>
+        <Result>
+            <CCRDataObjectID>Cn_2P2gN1BA-1</CCRDataObjectID>
+            <Source>
+                <Actor>
+                    <ActorID>cyberfox@gmail.com</ActorID>
+                    <ActorRole>
+                        <Text>Patient</Text>
+                    </ActorRole>
+                </Actor>
+                <Actor>
+                    <ActorID>cyberfox@gmail.com</ActorID>
+                    <ActorRole>
+                        <Text>Patient</Text>
+                    </ActorRole>
+                </Actor>
+            </Source>
+            <Test>
+                <CCRDataObjectID>Cn_2P2gN1BA-0</CCRDataObjectID>
+                <DateTime>
+                    <Type>
+                        <Text>Collection start date</Text>
+                    </Type>
+                    <ExactDateTime>2009-09-14</ExactDateTime>
+                </DateTime>
+                <Description>
+                    <Text>Glucose, Blood</Text>
+                    <Code>
+                        <Value>7.6164</Value>
+                        <CodingSystem>Google</CodingSystem>
+                    </Code>
+                    <Code>
+                        <Value>82947</Value>
+                        <CodingSystem>CPT</CodingSystem>
+                    </Code>
+                    <Code>
+                        <Value>2341-6</Value>
+                        <CodingSystem>LOINC</CodingSystem>
+                    </Code>
+                </Description>
+                <Source>
+                    <Actor>
+                        <ActorID>cyberfox@gmail.com</ActorID>
+                        <ActorRole>
+                            <Text>Patient</Text>
+                        </ActorRole>
+                    </Actor>
+                </Source>
+                <TestResult>
+                    <Value>93</Value>
+                    <Units>
+                        <Unit>mg/dl</Unit>
+                    </Units>
+                    <ResultSequencePosition>0</ResultSequencePosition>
+                </TestResult>
+            </Test>
+        </Result>
+    </Results>
+</Body>
+<Actors>
+    <Actor>
+        <ActorObjectID>Google Health Profile</ActorObjectID>
+        <Source>
+            <Actor>
+                <ActorID>cyberfox@gmail.com</ActorID>
+                <ActorRole>
+                    <Text>Patient</Text>
+                </ActorRole>
+            </Actor>
+            <Actor>
+                <ActorID>cyberfox@gmail.com</ActorID>
+                <ActorRole>
+                    <Text>Patient</Text>
+                </ActorRole>
+            </Actor>
+        </Source>
+    </Actor>
+</Actors>
+</ContinuityOfCareRecord>

@@ -13,19 +13,22 @@
 @interface RootViewController (PrivateMethods)
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)extract:(NSDictionary *)dict withFields:(NSArray *)fields;
+- (BOOL)loginIfPossible;
+- (void)showPasswordPrompt;
+- (void)loginUsername:(NSString *)user andPassword:(NSString *)pass;
 @end
 
 @implementation RootViewController
 
 @synthesize fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
 
+NSString *username=nil;
+NSString *password=nil;
+
 #pragma mark -
 #pragma mark View lifecycle
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  healthService = [[GoogleHealth alloc] initWithDelegate:self];
-  [healthService fetchFeedOfProfileList];
   // Set up the edit and add buttons.
   self.navigationItem.leftBarButtonItem = self.editButtonItem;
   
@@ -38,9 +41,30 @@
 
 // Implement viewWillAppear: to do additional setup before the view is presented.
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+  [super viewWillAppear:animated];
+  [super viewDidLoad];
+  [self loginIfPossible];
 }
 
+- (void)loginUsername:(NSString *)user andPassword:(NSString *)pass {
+  if (healthService == nil) {
+    [healthService dealloc];
+  }
+  healthService = [[GoogleHealth alloc] initWithDelegate:self];
+  healthService.username = username;
+  healthService.password = password;
+  [healthService fetchFeedOfProfileList];
+}
+
+- (BOOL)loginIfPossible {
+  if (username != nil && password != nil) {
+    [self loginUsername:username andPassword:password];
+    return YES;
+  } else {
+    [self showPasswordPrompt];
+  }
+  return NO;
+}
 
 /*
 - (void)viewDidAppear:(BOOL)animated {
@@ -315,6 +339,48 @@
 }
  */
 
+#pragma mark -
+#pragma mark Utility methods
+
+UITextField *userField=nil, *passField=nil;
+
+- (void)showPasswordPrompt {
+  UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:@"Google Health\nUsername and password" 
+                                                   message:@"\n\n\n" // IMPORTANT
+                                                  delegate:self 
+                                         cancelButtonTitle:@"Cancel" 
+                                         otherButtonTitles:@"Enter", nil];
+
+  userField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 75.0, 260.0, 25.0)]; 
+  [userField setBackgroundColor:[UIColor whiteColor]];
+  [userField setPlaceholder:@"username"];
+  [prompt addSubview:userField];
+
+  passField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 110.0, 260.0, 25.0)]; 
+  [passField setBackgroundColor:[UIColor whiteColor]];
+  [passField setPlaceholder:@"password"];
+  [passField setSecureTextEntry:YES];
+  [prompt addSubview:passField];
+
+  // set place
+  //  [prompt setTransform:CGAffineTransformMakeTranslation(0.0, 110.0)];
+  [prompt show];
+  [prompt release];
+
+  // set cursor and show keyboard
+  [userField becomeFirstResponder];  
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+  if (buttonIndex == 0) {
+    //  Cancel means nothing gets set, nothing changes.
+    return;
+  }
+  username = [userField text];
+  password = [passField text];
+  NSLog(@"Got: %@ / %@", username, password);
+  [self loginUsername:username andPassword:password];
+}
 
 #pragma mark -
 #pragma mark Memory management
@@ -416,6 +482,9 @@
     }
   }
   [self.tableView reloadData];
+  NSLog(@"Trying to send a notice to my account!");
+  //  THIS WORKED!??!?!?!?!
+  //   [healthService sendNotice];
 }
 
 @end

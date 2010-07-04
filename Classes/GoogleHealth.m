@@ -23,6 +23,9 @@
 
 
 @implementation GoogleHealth
+
+@synthesize username, password;
+
 - (id)initWithDelegate:(id)delegate {
   mDelegate = delegate;
   if (NO) {
@@ -74,8 +77,6 @@
     [service setShouldCacheDatedData:YES];
     [service setServiceShouldFollowNextLinks:YES];
   }
-  
-  // username/password may change
 
   [service setUserCredentialsWithUsername:username
                                  password:password];
@@ -251,6 +252,82 @@
   registerEntry = [[mRegisterFeed entries] objectAtIndex:index];
   
   return [[registerEntry title] stringValue];
+}
+
+#pragma mark Experimental
+
+- (void)sendNotice {
+  GDataEntryBase *profileListEntry = [self selectedProfileListEntry:0];
+
+  NSString *profileID = [[profileListEntry content] stringValue];
+  GDataServiceGoogleHealth *service = [self healthService];
+  NSString *token = [service authToken];
+
+  NSString *myStr = [NSString stringWithFormat:@"https://www.google.com/health/feeds/register/ui/%@", profileID];
+  NSMutableURLRequest *httpReq = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:myStr]];
+  [httpReq setTimeoutInterval:30.0];
+  [httpReq setHTTPMethod:@"POST"];
+  [httpReq addValue:@"application/atom+xml" forHTTPHeaderField:@"Content-Type"];
+
+  NSString* param = [NSString stringWithFormat:@"GoogleLogin auth=%@", token];
+  [httpReq setValue:param forHTTPHeaderField: @"Authorization"];
+//  [httpReq addValue:@"Authorization" forHTTPHeaderField:param];
+
+  NSString *strData = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+  "<entry xmlns=\"http://www.w3.org/2005/Atom\">"
+    "<title type=\"text\">Health Hacker Recording</title>"
+    "<content type=\"text\">Blood Glucose Update</content>"
+    "<ContinuityOfCareRecord xmlns=\"urn:astm-org:CCR\">"
+      "<Body>"
+        "<Results>"
+          "<Result>"
+            "<Test>"
+              "<DateTime>"
+                "<Type><Text>Date logged</Text></Type>"
+                "<ExactDateTime>2010-06-04T01:23:45Z</ExactDateTime>"
+              "</DateTime>"
+              "<Description>"
+                "<Text>Glucose, Blood</Text>"
+                "<Code>"
+                  "<Value>7.6164</Value>"
+                  "<CodingSystem>Google</CodingSystem>"
+                "</Code>"
+              "</Description>"
+              "<Source>"
+                "<Actor>"
+                  "<ActorID>cyberfox@gmail.com</ActorID>"
+                  "<ActorRole>"
+                    "<Text>Patient</Text>"
+                  "</ActorRole>"
+                "</Actor>"
+              "</Source>"
+              "<TestResult>"
+                "<Value>80</Value>"
+                "<Units>"
+                  "<Unit>mg/dl</Unit>"
+                "</Units>"
+              "</TestResult>"
+            "</Test>"
+          "</Result>"
+        "</Results>"
+      "</Body>"
+    "</ContinuityOfCareRecord>"
+  "</entry>";
+
+  NSHTTPURLResponse *response = nil;
+  NSString *requestBody = strData;//[[NSString alloc] initWithFormat:strData ];
+
+  [httpReq setHTTPBody:[requestBody dataUsingEncoding:NSASCIIStringEncoding]];
+  NSData *data = nil;
+  NSError *error = nil;
+  NSString* responseStr;
+  data = [NSURLConnection sendSynchronousRequest:httpReq
+                               returningResponse:&response error:&error];
+  if( [data length] >0) {
+    responseStr = [[NSString alloc] initWithData:data
+                                        encoding:NSASCIIStringEncoding];
+    NSLog(@"Got: %@", responseStr);
+  }
 }
 
 #pragma mark Setters and Getters

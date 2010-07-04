@@ -29,7 +29,13 @@
 
   Class mServiceClass;
   id mDelegate;
+
+  NSString *username;
+  NSString *password;
 }
+
+@property (nonatomic, retain) NSString *username;
+@property (nonatomic, retain) NSString *password;
 
 - (id)initWithDelegate:(id)delegate;
 
@@ -47,5 +53,7 @@
 - (NSString *)getProfileAt:(int)index;
 - (NSString *)getEntryAt:(int)index;
 - (NSString *)getRegisterAt:(int)index;
+
+- (void)sendNotice;
 
 @end

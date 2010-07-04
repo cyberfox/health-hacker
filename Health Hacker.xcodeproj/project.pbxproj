@@ -45,6 +45,7 @@
 		665E13A811D5A17A0096AD3B /* default-43x43.png in Resources */ = {isa = PBXBuildFile; fileRef = 665E13A711D5A17A0096AD3B /* default-43x43.png */; };
 		66E29F6411D5C001007B8EC7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E29F6311D5C001007B8EC7 /* Security.framework */; };
 		66E29F6611D5C001007B8EC7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E29F6511D5C001007B8EC7 /* SystemConfiguration.framework */; };
+		66E2A24111E080AA007B8EC7 /* sample_glucose.xml in Resources */ = {isa = PBXBuildFile; fileRef = 66E2A24011E080AA007B8EC7 /* sample_glucose.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 		665E13A711D5A17A0096AD3B /* default-43x43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-43x43.png"; sourceTree = "<group>"; };
 		66E29F6311D5C001007B8EC7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		66E29F6511D5C001007B8EC7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		66E2A24011E080AA007B8EC7 /* sample_glucose.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample_glucose.xml; path = Data/sample_glucose.xml; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Health_Hacker-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Health_Hacker-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +216,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				66E2A23F11E0806C007B8EC7 /* Data */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -397,6 +400,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		66E2A23F11E0806C007B8EC7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				66E2A24011E080AA007B8EC7 /* sample_glucose.xml */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -494,6 +505,7 @@
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
 				665E13A811D5A17A0096AD3B /* default-43x43.png in Resources */,
+				66E2A24111E080AA007B8EC7 /* sample_glucose.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

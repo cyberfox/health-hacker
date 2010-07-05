@@ -46,6 +46,8 @@
 		66E29F6411D5C001007B8EC7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E29F6311D5C001007B8EC7 /* Security.framework */; };
 		66E29F6611D5C001007B8EC7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E29F6511D5C001007B8EC7 /* SystemConfiguration.framework */; };
 		66E2A24111E080AA007B8EC7 /* sample_glucose.xml in Resources */ = {isa = PBXBuildFile; fileRef = 66E2A24011E080AA007B8EC7 /* sample_glucose.xml */; };
+		66E2A29311E2629B007B8EC7 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E2A29011E26231007B8EC7 /* libCorePlot-CocoaTouch.a */; };
+		66E2A29711E26372007B8EC7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E2A29611E26372007B8EC7 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4F1C6E0E1027B3CE00B46459 /* GDataTouchStaticLib */;
 			remoteInfo = GDataTouchStaticLib;
+		};
+		66E2A28F11E26231007B8EC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66E2A28611E26230007B8EC7 /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA /* libCorePlot-CocoaTouch.a */;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+		66E2A29111E26267007B8EC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66E2A28611E26230007B8EC7 /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA /* CorePlot-CocoaTouch */;
+			remoteInfo = "CorePlot-CocoaTouch";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -171,6 +187,8 @@
 		66E29F6311D5C001007B8EC7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		66E29F6511D5C001007B8EC7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		66E2A24011E080AA007B8EC7 /* sample_glucose.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample_glucose.xml; path = Data/sample_glucose.xml; sourceTree = "<group>"; };
+		66E2A28611E26230007B8EC7 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../CorePlot/Source/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		66E2A29611E26372007B8EC7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Health_Hacker-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Health_Hacker-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,12 +197,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66E2A29311E2629B007B8EC7 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
 				66E29F6411D5C001007B8EC7 /* Security.framework in Frameworks */,
 				66E29F6611D5C001007B8EC7 /* SystemConfiguration.framework in Frameworks */,
+				66E2A29711E26372007B8EC7 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +242,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				66E2A29611E26372007B8EC7 /* QuartzCore.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -250,6 +271,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66E2A28611E26230007B8EC7 /* CorePlot-CocoaTouch.xcodeproj */,
 				66E29F6511D5C001007B8EC7 /* SystemConfiguration.framework */,
 				66E29F6311D5C001007B8EC7 /* Security.framework */,
 				665E103F11D4C9850096AD3B /* GData.xcodeproj */,
@@ -408,6 +430,14 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		66E2A28711E26230007B8EC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66E2A29011E26231007B8EC7 /* libCorePlot-CocoaTouch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -423,6 +453,7 @@
 			);
 			dependencies = (
 				66E29F5011D5BD47007B8EC7 /* PBXTargetDependency */,
+				66E2A29211E26267007B8EC7 /* PBXTargetDependency */,
 			);
 			name = "Health Hacker";
 			productName = "Health Hacker";
@@ -447,6 +478,10 @@
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 66E2A28711E26230007B8EC7 /* Products */;
+					ProjectRef = 66E2A28611E26230007B8EC7 /* CorePlot-CocoaTouch.xcodeproj */;
+				},
 				{
 					ProductGroup = 665E104011D4C9850096AD3B /* Products */;
 					ProjectRef = 665E103F11D4C9850096AD3B /* GData.xcodeproj */;
@@ -493,6 +528,13 @@
 			fileType = "compiled.mach-o.executable";
 			path = DevelopmentTestTool;
 			remoteRef = 665E104F11D4C9850096AD3B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		66E2A29011E26231007B8EC7 /* libCorePlot-CocoaTouch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCorePlot-CocoaTouch.a";
+			remoteRef = 66E2A28F11E26231007B8EC7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -556,6 +598,11 @@
 			name = GDataTouchStaticLib;
 			targetProxy = 66E29F4F11D5BD47007B8EC7 /* PBXContainerItemProxy */;
 		};
+		66E2A29211E26267007B8EC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePlot-CocoaTouch";
+			targetProxy = 66E2A29111E26267007B8EC7 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -605,6 +652,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					"../CorePlot/Source/framework/**",
 					"/Users/mrs/oss/gdata-objectivec-client/Source/build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Headers",
 					"/usr/include/libxml2/**",
 				);
@@ -613,6 +661,7 @@
 					"-ObjC",
 					"-lxml2",
 					"-lGDataTouchStaticLib",
+					"-all_load",
 				);
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.0;
@@ -629,6 +678,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					"../CorePlot/Source/framework/**",
 					"/Users/mrs/oss/gdata-objectivec-client/Source/build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Headers",
 					"/usr/include/libxml2/**",
 				);
@@ -637,6 +687,7 @@
 					"-ObjC",
 					"-lxml2",
 					"-lGDataTouchStaticLib",
+					"-all_load",
 				);
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.0;

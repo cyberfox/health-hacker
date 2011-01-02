@@ -19,6 +19,9 @@
 - (void)setRegisterFeed:(GDataFeedHealthRegister *)feed;
 - (NSError *)registerFetchError;
 - (void)setRegisterFetchError:(NSError *)error;
+
+- (NSString *)getAuthCodeForUser:(NSString *)inUsername password:(NSString *)inPassword;
+- (NSString *)urlencode:(NSString *)unencoded;
 @end
 
 
@@ -63,7 +66,6 @@
 // service and the production service
 
 - (GDataServiceGoogleHealth *)healthService {
-  
   static GDataServiceGoogleHealth* service = nil;
   
   // the service class may have changed if the user clicked the sandbox
@@ -77,10 +79,16 @@
     [service setShouldCacheDatedData:YES];
     [service setServiceShouldFollowNextLinks:YES];
   }
-
-  [service setUserCredentialsWithUsername:username
-                                 password:password];
+  [service setAuthToken:[self getAuthCodeForUser:username password:password]];
   return service;
+}
+
+- (NSString *)urlencode:(NSString *)unencoded {
+  return (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                             (CFStringRef)unencoded,
+                                                             NULL,
+                                                             (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
+                                                             kCFStringEncodingUTF8 );
 }
 
 // get the profileList selected in the top list, or nil if none
@@ -255,6 +263,44 @@
 }
 
 #pragma mark Experimental
+
+- (NSString *)getAuthCodeForUser:(NSString *)inUsername password:(NSString *)inPassword {
+  NSString *authCodeRequest = @"https://www.google.com/accounts/ClientLogin";
+  NSMutableURLRequest *httpReq = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:authCodeRequest]];
+  [httpReq setTimeoutInterval:30.0];
+  [httpReq setHTTPMethod:@"POST"];
+  [httpReq addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+
+  NSString *body = [[NSString alloc] initWithFormat:@"Email=%@&Passwd=%@&service=health&source=CyberFOX-iHackHealth-1",
+                    [self urlencode:inUsername], [self urlencode:inPassword]];
+
+  [httpReq setHTTPBody:[body dataUsingEncoding:NSASCIIStringEncoding]];
+
+  NSHTTPURLResponse *response = nil;
+  NSData *data = nil;
+  NSError *error = nil;
+  NSString* responseStr;
+  data = [NSURLConnection sendSynchronousRequest:httpReq
+                               returningResponse:&response error:&error];
+  if( [data length] > 0) {
+    responseStr = [[NSString alloc] initWithData:data
+                                        encoding:NSASCIIStringEncoding];
+  }
+
+  NSString *authCode;
+  NSArray *cookies = [responseStr componentsSeparatedByString:@"\n"];
+  for (NSString *cookie in cookies) {
+    NSArray *keyValue = [cookie componentsSeparatedByString:@"="];
+    if([keyValue count] > 1) {
+      if ([[keyValue objectAtIndex:0] isEqualToString:@"Auth"]) {
+        authCode = [keyValue objectAtIndex:1];
+        NSLog(@"Received auth code: %@", authCode);
+      }
+    }
+  }
+
+  return authCode;
+}
 
 - (void)sendNotice {
   GDataEntryBase *profileListEntry = [self selectedProfileListEntry:0];

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,8 +15,9 @@
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
-		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		28C286E10D94DF7D0034E888 /* MedicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* MedicationViewController.m */; };
 		28D3F202112F7DC200FD0661 /* Health_Hacker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D3F201112F7DC200FD0661 /* Health_Hacker.xcdatamodeld */; };
+		6603A78B12D0754F0028FF85 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6603A78A12D0754F0028FF85 /* UserInfo.m */; };
 		665E0FD211D4B9540096AD3B /* NSDictionary+ParamUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 665E0F9711D4B9530096AD3B /* NSDictionary+ParamUtils.m */; };
 		665E0FD311D4B9540096AD3B /* NSObject+InvocationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 665E0F9911D4B9530096AD3B /* NSObject+InvocationUtils.m */; };
 		665E0FD411D4B9540096AD3B /* NSString+EscapingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 665E0F9B11D4B9530096AD3B /* NSString+EscapingUtils.m */; };
@@ -48,6 +49,8 @@
 		66E2A24111E080AA007B8EC7 /* sample_glucose.xml in Resources */ = {isa = PBXBuildFile; fileRef = 66E2A24011E080AA007B8EC7 /* sample_glucose.xml */; };
 		66E2A29311E2629B007B8EC7 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E2A29011E26231007B8EC7 /* libCorePlot-CocoaTouch.a */; };
 		66E2A29711E26372007B8EC7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E2A29611E26372007B8EC7 /* QuartzCore.framework */; };
+		66E2A2B711E29EE3007B8EC7 /* LoginAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E2A2B611E29EE3007B8EC7 /* LoginAlertView.m */; };
+		66EB64CE12759DB0004F2A91 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66EB64CD12759DB0004F2A91 /* Entitlements.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,21 +93,21 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 665E103F11D4C9850096AD3B /* GData.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 4F1C6E0E1027B3CE00B46459 /* GDataTouchStaticLib */;
+			remoteGlobalIDString = 4F1C6E0E1027B3CE00B46459;
 			remoteInfo = GDataTouchStaticLib;
 		};
 		66E2A28F11E26231007B8EC7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66E2A28611E26230007B8EC7 /* CorePlot-CocoaTouch.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA /* libCorePlot-CocoaTouch.a */;
+			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
 			remoteInfo = "CorePlot-CocoaTouch";
 		};
 		66E2A29111E26267007B8EC7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66E2A28611E26230007B8EC7 /* CorePlot-CocoaTouch.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA /* CorePlot-CocoaTouch */;
+			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
 			remoteInfo = "CorePlot-CocoaTouch";
 		};
 /* End PBXContainerItemProxy section */
@@ -121,9 +124,11 @@
 		2899E55F0DE3E45000AC0155 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		28A0AAE50D9B0CCF005BE974 /* Health_Hacker_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Health_Hacker_Prefix.pch; sourceTree = "<group>"; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		28C286DF0D94DF7D0034E888 /* MedicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationViewController.h; sourceTree = "<group>"; };
+		28C286E00D94DF7D0034E888 /* MedicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6603A78912D0754F0028FF85 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		6603A78A12D0754F0028FF85 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		665E0F9611D4B9530096AD3B /* NSDictionary+ParamUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ParamUtils.h"; sourceTree = "<group>"; };
 		665E0F9711D4B9530096AD3B /* NSDictionary+ParamUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ParamUtils.m"; sourceTree = "<group>"; };
 		665E0F9811D4B9530096AD3B /* NSObject+InvocationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+InvocationUtils.h"; sourceTree = "<group>"; };
@@ -189,6 +194,9 @@
 		66E2A24011E080AA007B8EC7 /* sample_glucose.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample_glucose.xml; path = Data/sample_glucose.xml; sourceTree = "<group>"; };
 		66E2A28611E26230007B8EC7 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../CorePlot/Source/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		66E2A29611E26372007B8EC7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		66E2A2B511E29EE3007B8EC7 /* LoginAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginAlertView.h; sourceTree = "<group>"; };
+		66E2A2B611E29EE3007B8EC7 /* LoginAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAlertView.m; sourceTree = "<group>"; };
+		66EB64CD12759DB0004F2A91 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Health_Hacker-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Health_Hacker-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,10 +225,12 @@
 				665E103811D4C3FF0096AD3B /* Models */,
 				665E0F9411D4B9530096AD3B /* HTTPRiot */,
 				665E0FB011D4B9530096AD3B /* Vendor */,
-				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
-				28C286E00D94DF7D0034E888 /* RootViewController.m */,
+				28C286DF0D94DF7D0034E888 /* MedicationViewController.h */,
+				28C286E00D94DF7D0034E888 /* MedicationViewController.m */,
 				1D3623240D0F684500981E51 /* Health_HackerAppDelegate.h */,
 				1D3623250D0F684500981E51 /* Health_HackerAppDelegate.m */,
+				66E2A2B511E29EE3007B8EC7 /* LoginAlertView.h */,
+				66E2A2B611E29EE3007B8EC7 /* LoginAlertView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -236,6 +246,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				66EB64CD12759DB0004F2A91 /* Entitlements.plist */,
 				66E2A23F11E0806C007B8EC7 /* Data */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -406,6 +417,8 @@
 				665E133D11D598EE0096AD3B /* Medication.m */,
 				665E103911D4C4250096AD3B /* GoogleHealth.h */,
 				665E103A11D4C4250096AD3B /* GoogleHealth.m */,
+				6603A78912D0754F0028FF85 /* UserInfo.h */,
+				6603A78A12D0754F0028FF85 /* UserInfo.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -466,7 +479,8 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Health Hacker" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -548,6 +562,7 @@
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
 				665E13A811D5A17A0096AD3B /* default-43x43.png in Resources */,
 				66E2A24111E080AA007B8EC7 /* sample_glucose.xml in Resources */,
+				66EB64CE12759DB0004F2A91 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,7 +575,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* Health_HackerAppDelegate.m in Sources */,
-				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
+				28C286E10D94DF7D0034E888 /* MedicationViewController.m in Sources */,
 				28D3F202112F7DC200FD0661 /* Health_Hacker.xcdatamodeld in Sources */,
 				665E0FD211D4B9540096AD3B /* NSDictionary+ParamUtils.m in Sources */,
 				665E0FD311D4B9540096AD3B /* NSObject+InvocationUtils.m in Sources */,
@@ -587,6 +602,8 @@
 				665E0FE811D4B9540096AD3B /* NSStringAdditions.m in Sources */,
 				665E103B11D4C4250096AD3B /* GoogleHealth.m in Sources */,
 				665E133E11D598EE0096AD3B /* Medication.m in Sources */,
+				66E2A2B711E29EE3007B8EC7 /* LoginAlertView.m in Sources */,
+				6603A78B12D0754F0028FF85 /* UserInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,7 +663,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Morgan Schweers (WPBM8NGXYE)";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -664,7 +681,8 @@
 					"-all_load",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2BC7EA5B-1E05-4F63-9DF3-A542A0907CF9";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -672,7 +690,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Morgan Schweers (WPBM8NGXYE)";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -690,7 +708,8 @@
 					"-all_load",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2BC7EA5B-1E05-4F63-9DF3-A542A0907CF9";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

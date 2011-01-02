@@ -7,7 +7,7 @@
 //
 
 #import "Health_HackerAppDelegate.h"
-#import "RootViewController.h"
+#import "MedicationViewController.h"
 
 
 @implementation Health_HackerAppDelegate
@@ -21,7 +21,7 @@
 
 - (void)awakeFromNib {    
     
-    RootViewController *rootViewController = (RootViewController *)[navigationController topViewController];
+    MedicationViewController *rootViewController = (MedicationViewController *)[navigationController topViewController];
     rootViewController.managedObjectContext = self.managedObjectContext;
 }
 
@@ -96,7 +96,6 @@
  If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
  */
 - (NSManagedObjectContext *)managedObjectContext {
-    
     if (managedObjectContext_ != nil) {
         return managedObjectContext_;
     }

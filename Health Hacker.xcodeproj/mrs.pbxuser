@@ -1086,7 +1086,7 @@
 		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1130, 1586}}";
-			sepNavSelRange = "{1090, 0}";
+			sepNavSelRange = "{596, 0}";
 			sepNavVisRange = "{0, 1718}";
 		};
 	};

@@ -14,12 +14,11 @@
 @interface MedicationViewController (PrivateMethods)
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)extract:(NSDictionary *)dict withFields:(NSArray *)fields;
-- (BOOL)loginIfPossible;
+//- (BOOL)loginIfPossible;
 @end
 
-NSString *username=nil;
-NSString *password=nil;
 LoginAlertView *passwordPrompt=nil;
+BOOL pullInitiated=NO;
 
 @implementation MedicationViewController
 
@@ -39,7 +38,6 @@ LoginAlertView *passwordPrompt=nil;
   if (currentUser == nil) {
     passwordPrompt = [[LoginAlertView alloc] initWithDelegate:self andMessage:@"Google Health\nUsername and password"];
   } else {
-    NSLog(@"(1)username == %@, (1)password == %@", currentUser.username, currentUser.password);
     [self loginUsername:currentUser.username andPassword:currentUser.password];
   }
 
@@ -50,8 +48,20 @@ LoginAlertView *passwordPrompt=nil;
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   [super viewDidLoad];
-  [self loginIfPossible];
+  if (healthService == nil) {
+    [passwordPrompt showPasswordPrompt];
+  }
 }
+
+-(void) pullDownToReloadAction {
+  if (healthService != nil) {
+    pullInitiated = YES;
+    [healthService fetchFeedOfProfileList];
+  } else {
+    [passwordPrompt showPasswordPrompt];
+  }
+}
+
 
 - (void)loginUsername:(NSString *)user andPassword:(NSString *)pass {
   if (healthService == nil) {
@@ -64,24 +74,12 @@ LoginAlertView *passwordPrompt=nil;
     UserInfo *uInfo = [NSEntityDescription insertNewObjectForEntityForName:@"UserInfo" inManagedObjectContext:managedObjectContext_];
     uInfo.username = user;
     uInfo.password = pass;
-    NSLog(@"(2)username == %@, (2)password == %@", uInfo.username, uInfo.password);
     [managedObjectContext_ save:nil];    
   }
-  NSLog(@"(3)username == %@, (3)password == %@", user, pass);
 
   healthService.username = user;
   healthService.password = pass;
   [healthService fetchFeedOfProfileList];
-}
-
-- (BOOL)loginIfPossible {
-  if (username != nil && password != nil) {
-    [self loginUsername:username andPassword:password];
-    return YES;
-  } else {
-    [passwordPrompt showPasswordPrompt];
-  }
-  return NO;
 }
 
 /*
@@ -369,6 +367,7 @@ LoginAlertView *passwordPrompt=nil;
 
 
 - (void)viewDidUnload {
+  healthService = nil;
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
@@ -447,7 +446,9 @@ LoginAlertView *passwordPrompt=nil;
     NSLog(@"Haven't gotten the individual profile yet!");
     return;
   }
-  NSLog(@"First entry (of %d): %@", [healthService.profileFeed.entries count], [healthService getEntryAt:0]);
+  if (pullInitiated) {
+    [self.pullToReloadHeaderView finishReloading:self.tableView animated:YES];
+  }
   for (GDataEntryHealthProfile *profileEntry in healthService.profileFeed.entries) {
     NSString *ccrTerm = [[profileEntry CCRCategory] term];
     NSString *itemTerm = [[profileEntry healthItemCategory] term];
@@ -457,7 +458,6 @@ LoginAlertView *passwordPrompt=nil;
     }
   }
   [self.tableView reloadData];
-  NSLog(@"Trying to send a notice to my account!");
   //  THIS WORKED!??!?!?!?!
   //   [healthService sendNotice];
 }

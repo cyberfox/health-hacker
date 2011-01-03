@@ -10,8 +10,9 @@
 #import <CoreData/CoreData.h>
 #import "GoogleHealth.h"
 #import "LoginAlertView.h"
+#import "UIPullToReloadTableViewController.h"
 
-@interface MedicationViewController : UITableViewController <NSFetchedResultsControllerDelegate, GoogleHealthNotifier, LoginAlertViewDelegate> {
+@interface MedicationViewController : UIPullToReloadTableViewController <NSFetchedResultsControllerDelegate, GoogleHealthNotifier, LoginAlertViewDelegate> {
 
 @private
     NSFetchedResultsController *fetchedResultsController_;

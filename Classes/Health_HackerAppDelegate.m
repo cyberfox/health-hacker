@@ -19,8 +19,7 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (void)awakeFromNib {    
-    
+- (void)awakeFromNib {
     MedicationViewController *rootViewController = (MedicationViewController *)[navigationController topViewController];
     rootViewController.managedObjectContext = self.managedObjectContext;
 }

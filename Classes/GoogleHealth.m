@@ -79,7 +79,9 @@
     [service setShouldCacheDatedData:YES];
     [service setServiceShouldFollowNextLinks:YES];
   }
-  [service setAuthToken:[self getAuthCodeForUser:username password:password]];
+  if (username != nil && password != nil) {
+    [service setAuthToken:[self getAuthCodeForUser:username password:password]];
+  }
   return service;
 }
 

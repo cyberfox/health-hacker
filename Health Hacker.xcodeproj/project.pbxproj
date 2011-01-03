@@ -84,6 +84,9 @@
 		66203C3712D1ECFA007DF1BE /* GDataProgressMonitorInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 66203C0012D1ECFA007DF1BE /* GDataProgressMonitorInputStream.m */; };
 		66203C3812D1ECFA007DF1BE /* GDataServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 66203C0212D1ECFA007DF1BE /* GDataServerError.m */; };
 		66203C3912D1ECFA007DF1BE /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 66203C0512D1ECFA007DF1BE /* GDataXMLNode.m */; };
+		66203C4512D1F164007DF1BE /* 79-medical-bag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66203C4212D1F164007DF1BE /* 79-medical-bag@2x.png */; };
+		66203C4612D1F164007DF1BE /* 94-pill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66203C4312D1F164007DF1BE /* 94-pill@2x.png */; };
+		66203C4712D1F164007DF1BE /* 125-food@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66203C4412D1F164007DF1BE /* 125-food@2x.png */; };
 		665E0FD211D4B9540096AD3B /* NSDictionary+ParamUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 665E0F9711D4B9530096AD3B /* NSDictionary+ParamUtils.m */; };
 		665E0FD311D4B9540096AD3B /* NSObject+InvocationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 665E0F9911D4B9530096AD3B /* NSObject+InvocationUtils.m */; };
 		665E0FD411D4B9540096AD3B /* NSString+EscapingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 665E0F9B11D4B9530096AD3B /* NSString+EscapingUtils.m */; };
@@ -285,6 +288,9 @@
 		66203C0212D1ECFA007DF1BE /* GDataServerError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataServerError.m; sourceTree = "<group>"; };
 		66203C0412D1ECFA007DF1BE /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		66203C0512D1ECFA007DF1BE /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		66203C4212D1F164007DF1BE /* 79-medical-bag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "79-medical-bag@2x.png"; sourceTree = "<group>"; };
+		66203C4312D1F164007DF1BE /* 94-pill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "94-pill@2x.png"; sourceTree = "<group>"; };
+		66203C4412D1F164007DF1BE /* 125-food@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "125-food@2x.png"; sourceTree = "<group>"; };
 		665E0F9611D4B9530096AD3B /* NSDictionary+ParamUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ParamUtils.h"; sourceTree = "<group>"; };
 		665E0F9711D4B9530096AD3B /* NSDictionary+ParamUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ParamUtils.m"; sourceTree = "<group>"; };
 		665E0F9811D4B9530096AD3B /* NSObject+InvocationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+InvocationUtils.h"; sourceTree = "<group>"; };
@@ -425,6 +431,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				66203C4212D1F164007DF1BE /* 79-medical-bag@2x.png */,
+				66203C4312D1F164007DF1BE /* 94-pill@2x.png */,
+				66203C4412D1F164007DF1BE /* 125-food@2x.png */,
 				66203B1B12D1E93C007DF1BE /* 79-medical-bag.png */,
 				66203B1C12D1E93C007DF1BE /* 125-food.png */,
 				66203B1912D1E8A7007DF1BE /* 94-pill.png */,
@@ -842,6 +851,9 @@
 				66203B1A12D1E8A7007DF1BE /* 94-pill.png in Resources */,
 				66203B1D12D1E93C007DF1BE /* 79-medical-bag.png in Resources */,
 				66203B1E12D1E93C007DF1BE /* 125-food.png in Resources */,
+				66203C4512D1F164007DF1BE /* 79-medical-bag@2x.png in Resources */,
+				66203C4612D1F164007DF1BE /* 94-pill@2x.png in Resources */,
+				66203C4712D1F164007DF1BE /* 125-food@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

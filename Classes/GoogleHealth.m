@@ -86,11 +86,11 @@
 }
 
 - (NSString *)urlencode:(NSString *)unencoded {
-  return (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
+  return [(NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
                                                              (CFStringRef)unencoded,
                                                              NULL,
                                                              (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
-                                                             kCFStringEncodingUTF8 );
+                                                             kCFStringEncodingUTF8 ) autorelease];
 }
 
 // get the profileList selected in the top list, or nil if none
@@ -282,26 +282,31 @@
   NSData *data = nil;
   NSError *error = nil;
   NSString* responseStr;
+  NSString *authCode = nil;
+
   data = [NSURLConnection sendSynchronousRequest:httpReq
                                returningResponse:&response error:&error];
   if( [data length] > 0) {
     responseStr = [[NSString alloc] initWithData:data
                                         encoding:NSASCIIStringEncoding];
-  }
 
-  NSString *authCode;
-  NSArray *cookies = [responseStr componentsSeparatedByString:@"\n"];
-  for (NSString *cookie in cookies) {
-    NSArray *keyValue = [cookie componentsSeparatedByString:@"="];
-    if([keyValue count] > 1) {
-      if ([[keyValue objectAtIndex:0] isEqualToString:@"Auth"]) {
-        authCode = [keyValue objectAtIndex:1];
-        NSLog(@"Received auth code: %@", authCode);
+    NSArray *cookies = [responseStr componentsSeparatedByString:@"\n"];
+    for (NSString *cookie in cookies) {
+      NSArray *keyValue = [cookie componentsSeparatedByString:@"="];
+      if([keyValue count] > 1) {
+        if ([[keyValue objectAtIndex:0] isEqualToString:@"Auth"]) {
+          authCode = [keyValue objectAtIndex:1];
+          NSLog(@"Received auth code: %@", authCode);
+        }
       }
     }
+    [responseStr release];
   }
 
-  return authCode;
+  [body release];
+  [httpReq release];
+
+  return authCode;    
 }
 
 - (void)sendNotice {
@@ -375,7 +380,9 @@
     responseStr = [[NSString alloc] initWithData:data
                                         encoding:NSASCIIStringEncoding];
     NSLog(@"Got: %@", responseStr);
+    [responseStr release];
   }
+  [httpReq release];
 }
 
 #pragma mark Setters and Getters

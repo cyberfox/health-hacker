@@ -422,7 +422,7 @@ BOOL pullInitiated=NO;
   if ([current isEqual:@"ACTIVE"]) {
     if (dosage == nil) {
       if (kind == nil) {
-        if(frequency == nil) frequency = [NSString new];
+        if(frequency == nil) frequency = [[NSString new] autorelease];
         NSLog(@"%@ %@ %@", product, frequency, route);
       } else {
         NSLog(@"%@ (%@) %@ %@", product, kind, frequency, route);
@@ -451,7 +451,7 @@ BOOL pullInitiated=NO;
   }
   for (GDataEntryHealthProfile *profileEntry in healthService.profileFeed.entries) {
     NSString *ccrTerm = [[profileEntry CCRCategory] term];
-    NSString *itemTerm = [[profileEntry healthItemCategory] term];
+//    NSString *itemTerm = [[profileEntry healthItemCategory] term];
 
     if ([ccrTerm isEqual:@"MEDICATION"]) {
       [self extractMedication:profileEntry];

@@ -347,6 +347,7 @@ BOOL pullInitiated=NO;
   NSString *product = [results valueForKeyPath:@"ContinuityOfCareRecord.Body.Medications.Medication.Product.ProductName.Text"];
   NSString *dosage = [results valueForKeyPath:@"ContinuityOfCareRecord.Body.Medications.Medication.Product.Strength.Value"];
   NSString *current = [results valueForKeyPath:@"ContinuityOfCareRecord.Body.Medications.Medication.Status.Text"];
+//  NSLog(@"Current: %@", current);
   if (dosage != nil) {
     NSString *unit = [results valueForKeyPath:@"ContinuityOfCareRecord.Body.Medications.Medication.Product.Strength.Units.Unit"];
     if (unit != nil) {
@@ -368,7 +369,7 @@ BOOL pullInitiated=NO;
   med.product = product;
   med.dosage = dosage;
   med.dose_count = doseCount;
-  med.current = [[NSNumber alloc] initWithInt:[current isEqual:@"ACTIVE"]];
+  med.current = [[NSNumber alloc] initWithInt:[current caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame];
   med.comment = comment;
   med.kind = kind;
   med.frequency = frequency;
@@ -376,7 +377,7 @@ BOOL pullInitiated=NO;
   med.document_id = documentId;
   [managedObjectContext_ save:nil];
 
-  if ([current isEqual:@"ACTIVE"]) {
+  if ([current caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
     if (dosage == nil) {
       if (kind == nil) {
         if(frequency == nil) frequency = [[NSString new] autorelease];

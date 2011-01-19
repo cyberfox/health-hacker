@@ -16,6 +16,10 @@
 #pragma mark -
 #pragma mark Initialization
 
+UIImage *green;
+UIImage *yellow;
+UIImage *red;
+
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -31,14 +35,16 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
 - (void)viewDidLoad {
-    [super viewDidLoad];
+  [super viewDidLoad];
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  green = [UIImage imageNamed:@"status_green"];
+  yellow = [UIImage imageNamed:@"status_yellow"];
+  red = [UIImage imageNamed:@"status_red"];
+
+  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -86,7 +92,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   // Return the number of rows in the section.
-  return (section == 0) ? 2 : 1;
+  return (section != 2) ? 2 : 1;
 }
 
 - (NSString *)currentTime {
@@ -99,6 +105,30 @@
   return dateString;
 }
 
+int glucose[] = { 93, 133 };
+// <100 is green, 100-140 is yellow, > 140 is red
+- (UIImage *)rateGlucose:(int) glucose {
+  if (glucose < 100) {
+    return green;
+  } else if (glucose < 140) {
+    return yellow;
+  } else {
+    return red;
+  }
+}
+
+int bloodPressure[2][3] = { { 121, 75, 82 }, { 124, 86, 88 } };
+// < 130/85 is green, <= 140/95 is yellow, >140/95 is red
+- (UIImage *)rateBloodPressure:(int)sys diastolic:(int)dia {
+  if (sys < 130 && dia <= 85) {
+    return green;
+  } else if (sys <= 140 && dia <= 95) {
+    return yellow;
+  } else {
+    return red;
+  }
+}
+
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *CellIdentifier = @"Cell";
@@ -108,45 +138,39 @@
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
   }
 
+  cell.selectionStyle = UITableViewCellSelectionStyleNone;
+  if (indexPath.row == 0) {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [UIImage imageNamed:@"add" ];
+    
+    CGRect frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
+    button.frame = frame;
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    button.userInteractionEnabled = YES;
+    
+    cell.accessoryView = button;
+  }
+
+  cell.detailTextLabel.text = [self currentTime];
   if (indexPath.section == 0) {
-    if (indexPath.row == 1) {
-      cell.textLabel.text = @"124/86 at 88bpm";
-      cell.detailTextLabel.text = [self currentTime];
-      //  <130/85 is green, <=140/95 is yellow, > 140/95 is red
-      cell.imageView.image = [UIImage imageNamed:@"status_yellow"];
-    } else {
-      cell.textLabel.text = @"120/74 at 82bpm";
-      cell.detailTextLabel.text = [self currentTime];
-      //  <130/85 is green, <=140/95 is yellow, > 140/95 is red
-      cell.imageView.image = [UIImage imageNamed:@"status_green"];
-    }
-
-    if (indexPath.row == 0) {
-      UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-      UIImage *image = [UIImage imageNamed:@"add" ];
-
-      CGRect frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
-      button.frame = frame;
-      [button setBackgroundImage:image forState:UIControlStateNormal];
-      button.userInteractionEnabled = YES;
-
-      cell.accessoryView = button;
-    }
+    int *bp = bloodPressure[indexPath.row];
+    int sys = bp[0];
+    int dia = bp[1];
+    int rate = bp[2];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d/%d at %dbpm",sys,dia,rate];
+    cell.imageView.image = [self rateBloodPressure:sys diastolic:dia];
   } else if (indexPath.section == 1) {
-    cell.textLabel.text = @"93 mg/Dl";
-    cell.detailTextLabel.text = [self currentTime];
-    // <100 is green, 100-140 is yellow, > 140 is red
-    cell.imageView.image = [UIImage imageNamed:@"status_green"];
+    int bloodSugar = glucose[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d mg/Dl",bloodSugar];
+    cell.imageView.image = [self rateGlucose:bloodSugar];
   } else {
     cell.textLabel.text = @"428lbs";
-    cell.detailTextLabel.text = [self currentTime];
     // <= goal weight is green, <=start weight is yellow, >start weight is red
     cell.imageView.image = [UIImage imageNamed:@"status_yellow"];
   }
 
   return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -191,7 +215,7 @@
 #pragma mark -
 #pragma mark Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
     /*
     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -200,7 +224,7 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
     */
-}
+//}
 
 #pragma mark -
 #pragma mark Memory management

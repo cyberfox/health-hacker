@@ -208,26 +208,52 @@
 	};
 	28C286E00D94DF7D0034E888 /* MedicationViewController.m */ = {
 		uiCtxt = {
-			sepNavFolds = "{\n    c =     (\n                {\n            l = DetailViewController;\n            r = \"{7961, 24}\";\n            s = 1;\n        },\n                {\n            l = DetailViewController;\n            r = \"{8012, 24}\";\n            s = 1;\n        },\n                {\n            l = \"Nib name\";\n            r = \"{8062, 12}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 17737}\";\n    s = 0;\n}";
-			sepNavIntBoundsRect = "{{0, 0}, {2504, 6071}}";
-			sepNavSelRange = "{15698, 0}";
-			sepNavVisRange = "{0, 2095}";
+			sepNavFolds = "{\n    c =     (\n                {\n            l = DetailViewController;\n            r = \"{6908, 24}\";\n            s = 1;\n        },\n                {\n            l = DetailViewController;\n            r = \"{6959, 24}\";\n            s = 1;\n        },\n                {\n            l = \"Nib name\";\n            r = \"{7009, 12}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 16217}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {2315, 5356}}";
+			sepNavSelRange = "{13164, 0}";
+			sepNavVisRange = "{11612, 1808}";
 			sepNavWindowFrame = "{{719, 93}, {1149, 853}}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
-		activeBuildConfigurationName = Release;
+		activeBuildConfigurationName = Debug;
 		activeExecutable = 665E0F7011D4B3F80096AD3B /* Health Hacker */;
-		activeSDKPreference = iphoneos4.2;
+		activeSDKPreference = iphonesimulator4.2;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* Health Hacker */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* Health Hacker */,
+		);
+		breakpoints = (
 		);
 		codeSenseManager = 665E0F8511D4B41C0096AD3B /* Code sense */;
 		executables = (
 			665E0F7011D4B3F80096AD3B /* Health Hacker */,
 		);
 		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
 			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
 				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
 				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
@@ -310,8 +336,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 315799624;
-			PBXWorkspaceStateSaveDate = 315799624;
+			PBXPerProjectTemplateStateSaveDate = 317110682;
+			PBXWorkspaceStateSaveDate = 317110682;
 		};
 		perUserProjectItems = {
 			6603A79512D07CD40028FF85 = 6603A79512D07CD40028FF85 /* PBXTextBookmark */;
@@ -340,11 +366,23 @@
 			66203C5F12D29FD4007DF1BE = 66203C5F12D29FD4007DF1BE /* PBXBookmark */;
 			66203C6012D29FD4007DF1BE = 66203C6012D29FD4007DF1BE /* PBXBookmark */;
 			66203C8512D2B788007DF1BE = 66203C8512D2B788007DF1BE /* PBXTextBookmark */;
-			66203C8612D2B788007DF1BE = 66203C8612D2B788007DF1BE /* PBXTextBookmark */;
-			66203C8712D2B788007DF1BE = 66203C8712D2B788007DF1BE /* PBXTextBookmark */;
-			664559A712D2B84F00B4F016 /* PBXTextBookmark */ = 664559A712D2B84F00B4F016 /* PBXTextBookmark */;
-			664559A812D2B84F00B4F016 /* PBXTextBookmark */ = 664559A812D2B84F00B4F016 /* PBXTextBookmark */;
-			664559B212D2B90900B4F016 /* PBXTextBookmark */ = 664559B212D2B90900B4F016 /* PBXTextBookmark */;
+			662FB92912E6C6AF00826CEE /* PBXTextBookmark */ = 662FB92912E6C6AF00826CEE /* PBXTextBookmark */;
+			662FB92A12E6C6AF00826CEE /* PBXTextBookmark */ = 662FB92A12E6C6AF00826CEE /* PBXTextBookmark */;
+			662FB92B12E6C6AF00826CEE /* PBXTextBookmark */ = 662FB92B12E6C6AF00826CEE /* PBXTextBookmark */;
+			662FB93712E6C71B00826CEE /* PBXTextBookmark */ = 662FB93712E6C71B00826CEE /* PBXTextBookmark */;
+			662FB93F12E6C85200826CEE /* PBXTextBookmark */ = 662FB93F12E6C85200826CEE /* PBXTextBookmark */;
+			662FB94012E6C85200826CEE /* PBXTextBookmark */ = 662FB94012E6C85200826CEE /* PBXTextBookmark */;
+			662FB94D12E6C8B100826CEE /* PBXTextBookmark */ = 662FB94D12E6C8B100826CEE /* PBXTextBookmark */;
+			662FB94E12E6C8B100826CEE /* PBXTextBookmark */ = 662FB94E12E6C8B100826CEE /* PBXTextBookmark */;
+			662FB95412E6C8C600826CEE /* PBXTextBookmark */ = 662FB95412E6C8C600826CEE /* PBXTextBookmark */;
+			662FB95512E6C8C600826CEE /* PBXTextBookmark */ = 662FB95512E6C8C600826CEE /* PBXTextBookmark */;
+			662FB95712E6C9B100826CEE /* PBXTextBookmark */ = 662FB95712E6C9B100826CEE /* PBXTextBookmark */;
+			662FB95A12E6CA6C00826CEE /* PBXTextBookmark */ = 662FB95A12E6CA6C00826CEE /* PBXTextBookmark */;
+			662FB95C12E6CA7200826CEE /* PBXTextBookmark */ = 662FB95C12E6CA7200826CEE /* PBXTextBookmark */;
+			662FB95D12E6CA8300826CEE /* PBXTextBookmark */ = 662FB95D12E6CA8300826CEE /* PBXTextBookmark */;
+			662FB95E12E6CCF000826CEE /* PBXTextBookmark */ = 662FB95E12E6CCF000826CEE /* PBXTextBookmark */;
+			664559A712D2B84F00B4F016 = 664559A712D2B84F00B4F016 /* PBXTextBookmark */;
+			664559C312D5B9D100B4F016 = 664559C312D5B9D100B4F016 /* PBXTextBookmark */;
 			665E105811D4C9B80096AD3B = 665E105811D4C9B80096AD3B /* PBXTextBookmark */;
 			665E11B511D5576D0096AD3B = 665E11B511D5576D0096AD3B /* PBXTextBookmark */;
 			665E11B611D5576D0096AD3B = 665E11B611D5576D0096AD3B /* PBXTextBookmark */;
@@ -469,6 +507,12 @@
 		name = MedicationViewController.m;
 		path = "/Users/mrs/Coding/Health Hacker/Classes/MedicationViewController.m";
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavFolds = "{\n    c =     (\n                {\n            l = DetailViewController;\n            r = \"{6908, 24}\";\n            s = 1;\n        },\n                {\n            l = DetailViewController;\n            r = \"{6959, 24}\";\n            s = 1;\n        },\n                {\n            l = \"Nib name\";\n            r = \"{7009, 12}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 16113}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {2315, 5421}}";
+			sepNavSelRange = "{14204, 0}";
+			sepNavVisRange = "{12257, 2696}";
+		};
 	};
 	6603A80412D083050028FF85 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -652,25 +696,155 @@
 		vrLen = 1745;
 		vrLoc = 3;
 	};
-	66203C8612D2B788007DF1BE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 665E103A11D4C4250096AD3B /* GoogleHealth.m */;
-		name = "GoogleHealth.m: 136";
-		rLen = 33;
-		rLoc = 4035;
-		rType = 0;
-		vrLen = 1751;
-		vrLoc = 5081;
-	};
-	66203C8712D2B788007DF1BE /* PBXTextBookmark */ = {
+	662FB92912E6C6AF00826CEE /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 665E103A11D4C4250096AD3B /* GoogleHealth.m */;
 		name = "GoogleHealth.m: 8";
 		rLen = 0;
 		rLoc = 153;
 		rType = 0;
-		vrLen = 2078;
-		vrLoc = 8658;
+		vrLen = 1269;
+		vrLoc = 0;
+	};
+	662FB92A12E6C6AF00826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6603A80012D082C40028FF85 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 8";
+		rLen = 0;
+		rLoc = 160;
+		rType = 0;
+		vrLen = 1745;
+		vrLoc = 3;
+	};
+	662FB92B12E6C6AF00826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6603A80012D082C40028FF85 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 345";
+		rLen = 0;
+		rLoc = 12740;
+		rType = 0;
+		vrLen = 2668;
+		vrLoc = 11894;
+	};
+	662FB93712E6C71B00826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6603A80012D082C40028FF85 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 346";
+		rLen = 0;
+		rLoc = 12779;
+		rType = 0;
+		vrLen = 2611;
+		vrLoc = 11894;
+	};
+	662FB93F12E6C85200826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6603A80012D082C40028FF85 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 365";
+		rLen = 0;
+		rLoc = 14301;
+		rType = 0;
+		vrLen = 2777;
+		vrLoc = 12257;
+	};
+	662FB94012E6C85200826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6603A80012D082C40028FF85 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 364";
+		rLen = 0;
+		rLoc = 14301;
+		rType = 0;
+		vrLen = 2696;
+		vrLoc = 12314;
+	};
+	662FB94D12E6C8B100826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 362";
+		rLen = 20;
+		rLoc = 14187;
+		rType = 0;
+		vrLen = 2680;
+		vrLoc = 12218;
+	};
+	662FB94E12E6C8B100826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 363";
+		rLen = 0;
+		rLoc = 14261;
+		rType = 0;
+		vrLen = 2680;
+		vrLoc = 12275;
+	};
+	662FB95412E6C8C600826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 363";
+		rLen = 0;
+		rLoc = 14204;
+		rType = 0;
+		vrLen = 2750;
+		vrLoc = 12218;
+	};
+	662FB95512E6C8C600826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 362";
+		rLen = 0;
+		rLoc = 14204;
+		rType = 0;
+		vrLen = 2698;
+		vrLoc = 12257;
+	};
+	662FB95712E6C9B100826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 363";
+		rLen = 0;
+		rLoc = 14204;
+		rType = 0;
+		vrLen = 2732;
+		vrLoc = 12257;
+	};
+	662FB95A12E6CA6C00826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 363";
+		rLen = 0;
+		rLoc = 14204;
+		rType = 0;
+		vrLen = 2725;
+		vrLoc = 12257;
+	};
+	662FB95C12E6CA7200826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 363";
+		rLen = 0;
+		rLoc = 14204;
+		rType = 0;
+		vrLen = 2725;
+		vrLoc = 12257;
+	};
+	662FB95D12E6CA8300826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 363";
+		rLen = 0;
+		rLoc = 14204;
+		rType = 0;
+		vrLen = 2796;
+		vrLoc = 12257;
+	};
+	662FB95E12E6CCF000826CEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* MedicationViewController.m */;
+		name = "MedicationViewController.m: 351";
+		rLen = 0;
+		rLoc = 13221;
+		rType = 0;
+		vrLen = 1808;
+		vrLoc = 11669;
 	};
 	664559A712D2B84F00B4F016 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -682,25 +856,15 @@
 		vrLen = 2078;
 		vrLoc = 8658;
 	};
-	664559A812D2B84F00B4F016 /* PBXTextBookmark */ = {
+	664559C312D5B9D100B4F016 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 665E103A11D4C4250096AD3B /* GoogleHealth.m */;
-		name = "GoogleHealth.m: 8";
-		rLen = 0;
-		rLoc = 153;
+		name = "GoogleHealth.m: 93";
+		rLen = 11;
+		rLoc = 2799;
 		rType = 0;
-		vrLen = 2078;
-		vrLoc = 8658;
-	};
-	664559B212D2B90900B4F016 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 665E103A11D4C4250096AD3B /* GoogleHealth.m */;
-		name = "GoogleHealth.m: 373";
-		rLen = 0;
-		rLoc = 12284;
-		rType = 0;
-		vrLen = 1842;
-		vrLoc = 10798;
+		vrLen = 1761;
+		vrLoc = 2343;
 	};
 	665E0F7011D4B3F80096AD3B /* Health Hacker */ = {
 		isa = PBXExecutable;
@@ -709,7 +873,7 @@
 		argumentStrings = (
 		);
 		autoAttachOnCrash = 1;
-		breakpointsEnabled = 0;
+		breakpointsEnabled = 1;
 		configStateDict = {
 		};
 		customDataFormattersEnabled = 1;
@@ -834,9 +998,9 @@
 	};
 	665E103A11D4C4250096AD3B /* GoogleHealth.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1130, 5499}}";
-			sepNavSelRange = "{12271, 0}";
-			sepNavVisRange = "{10798, 1842}";
+			sepNavIntBoundsRect = "{{0, 0}, {1130, 5928}}";
+			sepNavSelRange = "{153, 0}";
+			sepNavVisRange = "{0, 1269}";
 		};
 	};
 	665E105811D4C9B80096AD3B /* PBXTextBookmark */ = {

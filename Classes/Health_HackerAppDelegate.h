@@ -11,7 +11,8 @@
 
 @interface Health_HackerAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-    UINavigationController *navigationController;
+    UINavigationController *medicationController;
+    UINavigationController *testsController;
 
 @private
     NSManagedObjectContext *managedObjectContext_;
@@ -20,7 +21,8 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, retain) IBOutlet UINavigationController *medicationController;
+@property (nonatomic, retain) IBOutlet UINavigationController *testsController;
 
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

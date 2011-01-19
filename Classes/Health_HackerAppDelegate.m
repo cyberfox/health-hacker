@@ -8,20 +8,24 @@
 
 #import "Health_HackerAppDelegate.h"
 #import "MedicationViewController.h"
-
+#import "TestResultViewController.h"
 
 @implementation Health_HackerAppDelegate
 
 @synthesize window;
-@synthesize navigationController;
+@synthesize medicationController;
+@synthesize testsController;
 
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (void)awakeFromNib {
-    MedicationViewController *rootViewController = (MedicationViewController *)[navigationController topViewController];
-    rootViewController.managedObjectContext = self.managedObjectContext;
+  MedicationViewController *rootViewController = (MedicationViewController *)[medicationController topViewController];
+  rootViewController.managedObjectContext = self.managedObjectContext;
+
+  TestResultViewController *testResultController = (TestResultViewController *)[testsController topViewController];
+  testResultController.managedObjectContext = self.managedObjectContext;
 }
 
 
@@ -30,7 +34,7 @@
     // Override point for customization after application launch.
 
     // Add the navigation controller's view to the window and display.
-    [window addSubview:navigationController.view];
+    [window addSubview:medicationController.view];
     [window makeKeyAndVisible];
 
     return YES;
@@ -197,7 +201,7 @@
     [managedObjectModel_ release];
     [persistentStoreCoordinator_ release];
     
-    [navigationController release];
+    [medicationController release];
     [window release];
     [super dealloc];
 }

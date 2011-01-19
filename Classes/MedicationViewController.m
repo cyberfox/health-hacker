@@ -14,7 +14,6 @@
 @interface MedicationViewController (PrivateMethods)
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)extract:(NSDictionary *)dict withFields:(NSArray *)fields;
-//- (BOOL)loginIfPossible;
 @end
 
 LoginAlertView *passwordPrompt=nil;

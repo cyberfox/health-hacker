@@ -9,7 +9,7 @@
 #import "MedicationViewController.h"
 #import "AIXMLSerialization.h"
 #import "Medication.h"
-#import "UserInfo.h"
+#import "User.h"
 
 @interface MedicationViewController (PrivateMethods)
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -33,7 +33,7 @@ BOOL pullInitiated=NO;
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
   self.navigationItem.rightBarButtonItem = addButton;
   self.navigationItem.title = @"Medications";
-  UserInfo *currentUser = [UserInfo getUserInfo:managedObjectContext_];
+  User *currentUser = [User getUser:managedObjectContext_];
   if (currentUser == nil) {
     passwordPrompt = [[LoginAlertView alloc] initWithDelegate:self andMessage:@"Google Health\nUsername and password"];
   } else {
@@ -68,9 +68,9 @@ BOOL pullInitiated=NO;
   }
   healthService = [[GoogleHealth alloc] initWithDelegate:self];
 
-  UserInfo *currentUser = [UserInfo getUserInfo:managedObjectContext_];
+  User *currentUser = [User getUser:managedObjectContext_];
   if (currentUser == nil) {
-    UserInfo *uInfo = [NSEntityDescription insertNewObjectForEntityForName:@"UserInfo" inManagedObjectContext:managedObjectContext_];
+    User *uInfo = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:managedObjectContext_];
     uInfo.username = user;
     uInfo.password = pass;
     [managedObjectContext_ save:nil];    

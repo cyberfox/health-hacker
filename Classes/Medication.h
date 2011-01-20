@@ -22,6 +22,8 @@
 @property (nonatomic, retain) NSString * document_id;
 @property (nonatomic, retain) NSString * kind;
 @property (nonatomic, retain) NSString * route;
+@property (nonatomic, retain) UserInfo * user;
+
 @end
 
 @interface Medication (CoreDataGeneratedAccessors)

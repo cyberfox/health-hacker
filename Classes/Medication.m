@@ -20,6 +20,7 @@
 @dynamic document_id;
 @dynamic kind;
 @dynamic route;
+@dynamic user;
 
 + (Medication *)findByDocumentId:(NSString *)docId fromContext:(NSManagedObjectContext *)context {
   NSError *fetchError = nil;

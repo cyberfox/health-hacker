@@ -1,5 +1,5 @@
 //
-//  UserInfo.h
+//  User.h
 //  Health Hacker
 //
 //  Created by Morgan Schweers on 1/2/11.
@@ -8,7 +8,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface UserInfo : NSManagedObject {
+@interface User : NSManagedObject {
 }
 
 @property (nonatomic, retain) NSString * username;
@@ -16,6 +16,6 @@
 
 @end
 
-@interface UserInfo (CoreDataGeneratedAccessors)
-+ (UserInfo *)getUserInfo:(NSManagedObjectContext *)context;
+@interface User (CoreDataGeneratedAccessors)
++ (User *)getUser:(NSManagedObjectContext *)context;
 @end

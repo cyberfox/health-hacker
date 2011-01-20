@@ -8,7 +8,7 @@
 
 #import "BloodGlucose.h"
 
-#import "UserInfo.h"
+#import "User.h"
 
 @implementation BloodGlucose 
 

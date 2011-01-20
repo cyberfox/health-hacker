@@ -8,7 +8,7 @@
 
 #import "BloodPressure.h"
 
-#import "UserInfo.h"
+#import "User.h"
 
 @implementation BloodPressure 
 

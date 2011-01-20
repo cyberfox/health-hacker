@@ -16,7 +16,6 @@
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* MedicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* MedicationViewController.m */; };
 		28D3F202112F7DC200FD0661 /* Health_Hacker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D3F201112F7DC200FD0661 /* Health_Hacker.xcdatamodeld */; };
-		6603A78B12D0754F0028FF85 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6603A78A12D0754F0028FF85 /* User.m */; };
 		66203AB012D1DEA0007DF1BE /* UIPullToReloadHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66203AAD12D1DEA0007DF1BE /* UIPullToReloadHeaderView.m */; };
 		66203AB112D1DEA0007DF1BE /* UIPullToReloadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66203AAF12D1DEA0007DF1BE /* UIPullToReloadTableViewController.m */; };
 		66203ACE12D1DF33007DF1BE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66203ACD12D1DF33007DF1BE /* AudioToolbox.framework */; };
@@ -95,6 +94,7 @@
 		662FBAD912E8308B00826CEE /* Weight.m in Sources */ = {isa = PBXBuildFile; fileRef = 662FBAD412E8308B00826CEE /* Weight.m */; };
 		662FBADA12E8308B00826CEE /* BloodPressure.m in Sources */ = {isa = PBXBuildFile; fileRef = 662FBAD612E8308B00826CEE /* BloodPressure.m */; };
 		662FBADB12E8308B00826CEE /* BloodGlucose.m in Sources */ = {isa = PBXBuildFile; fileRef = 662FBAD812E8308B00826CEE /* BloodGlucose.m */; };
+		662FBAF512E8324600826CEE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 662FBAF412E8324600826CEE /* User.m */; };
 		665E0FD211D4B9540096AD3B /* NSDictionary+ParamUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 665E0F9711D4B9530096AD3B /* NSDictionary+ParamUtils.m */; };
 		665E0FD311D4B9540096AD3B /* NSObject+InvocationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 665E0F9911D4B9530096AD3B /* NSObject+InvocationUtils.m */; };
 		665E0FD411D4B9540096AD3B /* NSString+EscapingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 665E0F9B11D4B9530096AD3B /* NSString+EscapingUtils.m */; };
@@ -160,8 +160,6 @@
 		28C286DF0D94DF7D0034E888 /* MedicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationViewController.h; sourceTree = "<group>"; };
 		28C286E00D94DF7D0034E888 /* MedicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6603A78912D0754F0028FF85 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		6603A78A12D0754F0028FF85 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		66203AAC12D1DEA0007DF1BE /* UIPullToReloadHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPullToReloadHeaderView.h; sourceTree = "<group>"; };
 		66203AAD12D1DEA0007DF1BE /* UIPullToReloadHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPullToReloadHeaderView.m; sourceTree = "<group>"; };
 		66203AAE12D1DEA0007DF1BE /* UIPullToReloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPullToReloadTableViewController.h; sourceTree = "<group>"; };
@@ -311,6 +309,8 @@
 		662FBAD612E8308B00826CEE /* BloodPressure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodPressure.m; sourceTree = "<group>"; };
 		662FBAD712E8308B00826CEE /* BloodGlucose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodGlucose.h; sourceTree = "<group>"; };
 		662FBAD812E8308B00826CEE /* BloodGlucose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodGlucose.m; sourceTree = "<group>"; };
+		662FBAF312E8324600826CEE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		662FBAF412E8324600826CEE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		665E0F9611D4B9530096AD3B /* NSDictionary+ParamUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ParamUtils.h"; sourceTree = "<group>"; };
 		665E0F9711D4B9530096AD3B /* NSDictionary+ParamUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ParamUtils.m"; sourceTree = "<group>"; };
 		665E0F9811D4B9530096AD3B /* NSObject+InvocationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+InvocationUtils.h"; sourceTree = "<group>"; };
@@ -776,6 +776,8 @@
 		665E103811D4C3FF0096AD3B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				662FBAF312E8324600826CEE /* User.h */,
+				662FBAF412E8324600826CEE /* User.m */,
 				662FBAD312E8308B00826CEE /* Weight.h */,
 				662FBAD412E8308B00826CEE /* Weight.m */,
 				662FBAD512E8308B00826CEE /* BloodPressure.h */,
@@ -786,8 +788,6 @@
 				665E133D11D598EE0096AD3B /* Medication.m */,
 				665E103911D4C4250096AD3B /* GoogleHealth.h */,
 				665E103A11D4C4250096AD3B /* GoogleHealth.m */,
-				6603A78912D0754F0028FF85 /* User.h */,
-				6603A78A12D0754F0028FF85 /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -930,7 +930,6 @@
 				665E103B11D4C4250096AD3B /* GoogleHealth.m in Sources */,
 				665E133E11D598EE0096AD3B /* Medication.m in Sources */,
 				66E2A2B711E29EE3007B8EC7 /* LoginAlertView.m in Sources */,
-				6603A78B12D0754F0028FF85 /* User.m in Sources */,
 				66203AB012D1DEA0007DF1BE /* UIPullToReloadHeaderView.m in Sources */,
 				66203AB112D1DEA0007DF1BE /* UIPullToReloadTableViewController.m in Sources */,
 				66203B3312D1EB0C007DF1BE /* GDataEntryHealthProfile.m in Sources */,
@@ -997,6 +996,7 @@
 				662FBAD912E8308B00826CEE /* Weight.m in Sources */,
 				662FBADA12E8308B00826CEE /* BloodPressure.m in Sources */,
 				662FBADB12E8308B00826CEE /* BloodGlucose.m in Sources */,
+				662FBAF512E8324600826CEE /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

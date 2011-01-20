@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>662FBAEC12E8312200826CEE</string>
+						<string>662FBB2612E834BE00826CEE</string>
 						<key>history</key>
 						<array>
 							<string>662FBA9C12E81CEB00826CEE</string>
@@ -316,7 +316,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>15</integer>
+									<integer>6</integer>
 									<integer>4</integer>
 									<integer>3</integer>
 									<integer>0</integer>
@@ -360,7 +360,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>User.h</string>
+								<string>User.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -368,11 +368,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>User.h</string>
+										<string>User.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>662FBAE912E8312200826CEE</string>
+										<string>662FBB2512E834BE00826CEE</string>
 										<key>history</key>
 										<array>
 											<string>665E105811D4C9B80096AD3B</string>
@@ -392,7 +392,6 @@
 											<string>66E2A0AE11D6D839007B8EC7</string>
 											<string>66E2A0B211D6D839007B8EC7</string>
 											<string>66E2A24E11E0924B007B8EC7</string>
-											<string>66E2A26611E095ED007B8EC7</string>
 											<string>6603A79A12D07CD40028FF85</string>
 											<string>6603A7E112D081610028FF85</string>
 											<string>6603A7E212D081610028FF85</string>
@@ -421,17 +420,18 @@
 											<string>662FBA9312E6F60100826CEE</string>
 											<string>662FBADC12E8312200826CEE</string>
 											<string>662FBADD12E8312200826CEE</string>
-											<string>662FBADE12E8312200826CEE</string>
-											<string>662FBADF12E8312200826CEE</string>
-											<string>662FBAE012E8312200826CEE</string>
 											<string>662FBAE112E8312200826CEE</string>
-											<string>662FBAE212E8312200826CEE</string>
 											<string>662FBAE312E8312200826CEE</string>
-											<string>662FBAE412E8312200826CEE</string>
 											<string>662FBAE512E8312200826CEE</string>
-											<string>662FBAE612E8312200826CEE</string>
-											<string>662FBAE712E8312200826CEE</string>
-											<string>662FBAE812E8312200826CEE</string>
+											<string>662FBAF612E832CB00826CEE</string>
+											<string>662FBB0F12E833C400826CEE</string>
+											<string>662FBB1012E833C400826CEE</string>
+											<string>662FBB1112E833C400826CEE</string>
+											<string>662FBB1212E833C400826CEE</string>
+											<string>662FBB1312E833C400826CEE</string>
+											<string>662FBB1412E833C400826CEE</string>
+											<string>662FBB2312E834BE00826CEE</string>
+											<string>662FBB2412E834BE00826CEE</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -633,11 +633,11 @@
 		<string>662FB94512E6C88F00826CEE</string>
 		<string>662FB94F12E6C8B100826CEE</string>
 		<string>662FB94212E6C85200826CEE</string>
-		<string>665E0FED11D4B96E0096AD3B</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>662FBAEA12E8312200826CEE</string>
+		<string>665E0FED11D4B96E0096AD3B</string>
 		<string>/Users/mrs/Coding/Health Hacker/Health Hacker.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>374 108 1544 1070 0 0 1920 1178 </string>
@@ -656,12 +656,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Health_Hacker.xcdatamodel</string>
+								<string>Weight.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -730,7 +732,7 @@
 			<key>WindowToolGUID</key>
 			<string>665E0FED11D4B96E0096AD3B</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -877,7 +879,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>User.h</string>
+										<string>&lt;No Editor&gt;</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -886,7 +888,7 @@
 										<key>Frame</key>
 										<string>{{0, 0}, {969, 318}}</string>
 										<key>RubberWindowFrame</key>
-										<string>214 18 969 715 0 0 1920 1178 </string>
+										<string>250 65 969 715 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
@@ -912,7 +914,7 @@
 								<key>Frame</key>
 								<string>{{0, 323}, {969, 351}}</string>
 								<key>RubberWindowFrame</key>
-								<string>214 18 969 715 0 0 1920 1178 </string>
+								<string>250 65 969 715 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXProjectFindModule</string>
@@ -941,7 +943,7 @@
 				<string>1CD0528E0623707200166675</string>
 			</array>
 			<key>WindowString</key>
-			<string>214 18 969 715 0 0 1920 1178 </string>
+			<string>250 65 969 715 0 0 1920 1178 </string>
 			<key>WindowToolGUID</key>
 			<string>1C530D57069F1CE1000CFCEE</string>
 			<key>WindowToolIsVisible</key>

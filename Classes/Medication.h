@@ -7,7 +7,7 @@
 //
 
 #import <CoreData/CoreData.h>
-
+#import "User.h"
 
 @interface Medication :  NSManagedObject  
 {
@@ -22,7 +22,7 @@
 @property (nonatomic, retain) NSString * document_id;
 @property (nonatomic, retain) NSString * kind;
 @property (nonatomic, retain) NSString * route;
-@property (nonatomic, retain) UserInfo * user;
+@property (nonatomic, retain) User * user;
 
 @end
 

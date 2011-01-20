@@ -8,7 +8,7 @@
 
 #import "Weight.h"
 
-#import "UserInfo.h"
+#import "User.h"
 
 @implementation Weight 
 

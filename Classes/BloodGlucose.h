@@ -7,8 +7,7 @@
 //
 
 #import <CoreData/CoreData.h>
-
-@class UserInfo;
+#import "User.h"
 
 @interface BloodGlucose :  NSManagedObject  
 {
@@ -16,7 +15,7 @@
 
 @property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSNumber * milligrams;
-@property (nonatomic, retain) UserInfo * user;
+@property (nonatomic, retain) User * user;
 
 @end
 

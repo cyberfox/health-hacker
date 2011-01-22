@@ -118,11 +118,11 @@ int glucose[] = { 93, 133 };
 }
 
 int bloodPressure[2][3] = { { 121, 75, 82 }, { 124, 86, 88 } };
-// < 130/85 is green, <= 140/95 is yellow, >140/95 is red
+// < 120/80 is green, < 140/90 is yellow, >=140/90 is red ( http://en.wikipedia.org/wiki/Blood_pressure )
 - (UIImage *)rateBloodPressure:(int)sys diastolic:(int)dia {
-  if (sys < 130 && dia <= 85) {
+  if (sys < 120 && dia <= 80) {
     return green;
-  } else if (sys <= 140 && dia <= 95) {
+  } else if (sys < 140 && dia < 90) {
     return yellow;
   } else {
     return red;

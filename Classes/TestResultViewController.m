@@ -20,6 +20,9 @@ UIImage *green;
 UIImage *yellow;
 UIImage *red;
 
+@synthesize bpEntry;
+@synthesize displayTableView;
+
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -31,16 +34,24 @@ UIImage *red;
 }
 */
 
+// int bloodPressure[2][3] = { { 121, 75, 82 }, { 124, 86, 88 } };
+
+NSMutableArray *bloodPressure;
+
+- (void)awakeFromNib {
+  NSArray *sample = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:121], [NSNumber numberWithInt:82], [NSNumber numberWithInt:95], nil];
+  bloodPressure = [[NSMutableArray alloc] initWithObjects:sample, nil];
+
+  green = [UIImage imageNamed:@"status_green"];
+  yellow = [UIImage imageNamed:@"status_yellow"];
+  red = [UIImage imageNamed:@"status_red"];
+}
 
 #pragma mark -
 #pragma mark View lifecycle
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
-  green = [UIImage imageNamed:@"status_green"];
-  yellow = [UIImage imageNamed:@"status_yellow"];
-  red = [UIImage imageNamed:@"status_red"];
 
   // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
   // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -91,8 +102,21 @@ UIImage *red;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  if (section == 0) {
+    return [bloodPressure count];
+  }
   // Return the number of rows in the section.
   return (section != 2) ? 2 : 1;
+}
+
+-(void)addBloodPressureReading:(int)heartRate systolic:(int)systolic diastolic:(int)diastolic {
+  NSLog(@"Adding blood pressure reading");
+  NSLog(@"Adding: %d/%d @ %d!", systolic, diastolic, heartRate);
+  NSArray *newBPReading = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:systolic],
+                           [NSNumber numberWithInt:diastolic],
+                           [NSNumber numberWithInt:heartRate], nil];
+  [bloodPressure addObject:newBPReading];
+  [displayTableView reloadData];
 }
 
 - (NSString *)currentTime {
@@ -117,7 +141,6 @@ int glucose[] = { 93, 133 };
   }
 }
 
-int bloodPressure[2][3] = { { 121, 75, 82 }, { 124, 86, 88 } };
 // < 120/80 is green, < 140/90 is yellow, >=140/90 is red ( http://en.wikipedia.org/wiki/Blood_pressure )
 - (UIImage *)rateBloodPressure:(int)sys diastolic:(int)dia {
   if (sys < 120 && dia <= 80) {
@@ -141,11 +164,14 @@ int bloodPressure[2][3] = { { 121, 75, 82 }, { 124, 86, 88 } };
   cell.selectionStyle = UITableViewCellSelectionStyleNone;
   if (indexPath.row == 0) {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [UIImage imageNamed:@"add" ];
+    UIImage *image = [UIImage imageNamed:@"add"];
     
     CGRect frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
     button.frame = frame;
     [button setBackgroundImage:image forState:UIControlStateNormal];
+    if (indexPath.section == 0) {
+      [button addTarget:self action:@selector(enterBP:) forControlEvents:UIControlEventTouchUpInside];
+    }
     button.userInteractionEnabled = YES;
     
     cell.accessoryView = button;
@@ -153,12 +179,13 @@ int bloodPressure[2][3] = { { 121, 75, 82 }, { 124, 86, 88 } };
 
   cell.detailTextLabel.text = [self currentTime];
   if (indexPath.section == 0) {
-    int *bp = bloodPressure[indexPath.row];
-    int sys = bp[0];
-    int dia = bp[1];
-    int rate = bp[2];
+    NSArray *bp = [bloodPressure objectAtIndex:indexPath.row];
+    int sys = [[bp objectAtIndex:0] intValue];
+    int dia = [[bp objectAtIndex:1] intValue];
+    int rate = [[bp objectAtIndex:2] intValue];
     cell.textLabel.text = [NSString stringWithFormat:@"%d/%d at %dbpm",sys,dia,rate];
     cell.imageView.image = [self rateBloodPressure:sys diastolic:dia];
+    NSLog(@"WTF? %@", cell.imageView.image);
   } else if (indexPath.section == 1) {
     int bloodSugar = glucose[indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%d mg/Dl",bloodSugar];
@@ -170,6 +197,10 @@ int bloodPressure[2][3] = { { 121, 75, 82 }, { 124, 86, 88 } };
   }
 
   return cell;
+}
+
+- (void)enterBP:(id)sender {
+  [self.navigationController pushViewController:bpEntry animated:YES];
 }
 
 /*

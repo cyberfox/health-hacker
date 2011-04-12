@@ -121,6 +121,7 @@
 		665E103B11D4C4250096AD3B /* GoogleHealth.m in Sources */ = {isa = PBXBuildFile; fileRef = 665E103A11D4C4250096AD3B /* GoogleHealth.m */; };
 		665E133E11D598EE0096AD3B /* Medication.m in Sources */ = {isa = PBXBuildFile; fileRef = 665E133D11D598EE0096AD3B /* Medication.m */; };
 		665E13A811D5A17A0096AD3B /* default-43x43.png in Resources */ = {isa = PBXBuildFile; fileRef = 665E13A711D5A17A0096AD3B /* default-43x43.png */; };
+		66BC6A8713544F2700C966A9 /* BPEntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BC6A8613544F2700C966A9 /* BPEntryController.m */; };
 		66E29F6411D5C001007B8EC7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E29F6311D5C001007B8EC7 /* Security.framework */; };
 		66E29F6611D5C001007B8EC7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E29F6511D5C001007B8EC7 /* SystemConfiguration.framework */; };
 		66E2A24111E080AA007B8EC7 /* sample_glucose.xml in Resources */ = {isa = PBXBuildFile; fileRef = 66E2A24011E080AA007B8EC7 /* sample_glucose.xml */; };
@@ -370,6 +371,8 @@
 		665E133C11D598EE0096AD3B /* Medication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medication.h; sourceTree = "<group>"; };
 		665E133D11D598EE0096AD3B /* Medication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medication.m; sourceTree = "<group>"; };
 		665E13A711D5A17A0096AD3B /* default-43x43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-43x43.png"; sourceTree = "<group>"; };
+		66BC6A8513544F2700C966A9 /* BPEntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPEntryController.h; sourceTree = "<group>"; };
+		66BC6A8613544F2700C966A9 /* BPEntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPEntryController.m; sourceTree = "<group>"; };
 		66E29F6311D5C001007B8EC7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		66E29F6511D5C001007B8EC7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		66E2A24011E080AA007B8EC7 /* sample_glucose.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample_glucose.xml; path = Data/sample_glucose.xml; sourceTree = "<group>"; };
@@ -414,6 +417,8 @@
 				66E2A2B611E29EE3007B8EC7 /* LoginAlertView.m */,
 				662FB96112E6CE7400826CEE /* TestResultViewController.h */,
 				662FB96212E6CE7400826CEE /* TestResultViewController.m */,
+				66BC6A8513544F2700C966A9 /* BPEntryController.h */,
+				66BC6A8613544F2700C966A9 /* BPEntryController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -997,6 +1002,7 @@
 				662FBADA12E8308B00826CEE /* BloodPressure.m in Sources */,
 				662FBADB12E8308B00826CEE /* BloodGlucose.m in Sources */,
 				662FBAF512E8324600826CEE /* User.m in Sources */,
+				66BC6A8713544F2700C966A9 /* BPEntryController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

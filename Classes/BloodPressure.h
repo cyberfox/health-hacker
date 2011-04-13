@@ -20,6 +20,8 @@
 @property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) User * user;
 
++ (NSArray *)getBP:(NSManagedObjectContext *)context;
++ (BloodPressure *)create:(NSManagedObjectContext *)context systolic:(int)sys diastolic:(int)dia heartRate:(int)heartRate;
 @end
 
 

@@ -15,6 +15,7 @@
   NSFetchedResultsController *fetchedResultsController_;
   NSManagedObjectContext *managedObjectContext_;
   UITableView *displayTableView;
+  NSArray *bloodPressure;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *displayTableView;

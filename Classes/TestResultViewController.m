@@ -7,7 +7,7 @@
 //
 
 #import "TestResultViewController.h"
-
+#import "BloodPressure.h"
 
 @implementation TestResultViewController
 
@@ -34,13 +34,14 @@ UIImage *red;
 }
 */
 
-// int bloodPressure[2][3] = { { 121, 75, 82 }, { 124, 86, 88 } };
-
-NSMutableArray *bloodPressure;
+NSArray *bloodPressure;
 
 - (void)awakeFromNib {
-  NSArray *sample = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:121], [NSNumber numberWithInt:82], [NSNumber numberWithInt:95], nil];
-  bloodPressure = [[NSMutableArray alloc] initWithObjects:sample, nil];
+  bloodPressure = [BloodPressure getBP:self.managedObjectContext];
+  for (BloodPressure *bp in bloodPressure) {
+    NSLog(@"Got: %@/%@", bp.systolic, bp.diastolic);
+  }
+  [bloodPressure retain];
 
   green = [UIImage imageNamed:@"status_green"];
   yellow = [UIImage imageNamed:@"status_yellow"];
@@ -103,7 +104,7 @@ NSMutableArray *bloodPressure;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   if (section == 0) {
-    return [bloodPressure count];
+    return MAX([bloodPressure count], 1);
   }
   // Return the number of rows in the section.
   return (section != 2) ? 2 : 1;
@@ -112,20 +113,20 @@ NSMutableArray *bloodPressure;
 -(void)addBloodPressureReading:(int)heartRate systolic:(int)systolic diastolic:(int)diastolic {
   NSLog(@"Adding blood pressure reading");
   NSLog(@"Adding: %d/%d @ %d!", systolic, diastolic, heartRate);
-  NSArray *newBPReading = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:systolic],
-                           [NSNumber numberWithInt:diastolic],
-                           [NSNumber numberWithInt:heartRate], nil];
-  [bloodPressure addObject:newBPReading];
+  [BloodPressure create:self.managedObjectContext systolic:systolic diastolic:diastolic heartRate:heartRate];
+  bloodPressure = [BloodPressure getBP:self.managedObjectContext];
+  [bloodPressure retain];
   [displayTableView reloadData];
 }
 
-- (NSString *)currentTime {
+- (NSString *)currentTime:(NSDate *)when {
   NSDateFormatter *format = [[NSDateFormatter alloc] init];
   [format setDateFormat:@"MMM dd, yyyy HH:mm"];
+  if (when == nil) {
+    when = [[NSDate alloc] init];
+  }
   
-  NSDate *now = [[NSDate alloc] init];
-  
-  NSString *dateString = [format stringFromDate:now]; 
+  NSString *dateString = [format stringFromDate:when];
   return dateString;
 }
 
@@ -155,7 +156,7 @@ int glucose[] = { 93, 133 };
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *CellIdentifier = @"Cell";
-  
+
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (cell == nil) {
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
@@ -175,25 +176,34 @@ int glucose[] = { 93, 133 };
     button.userInteractionEnabled = YES;
     
     cell.accessoryView = button;
+  } else {
+    cell.accessoryView = nil;
   }
 
-  cell.detailTextLabel.text = [self currentTime];
-  if (indexPath.section == 0) {
-    NSArray *bp = [bloodPressure objectAtIndex:indexPath.row];
-    int sys = [[bp objectAtIndex:0] intValue];
-    int dia = [[bp objectAtIndex:1] intValue];
-    int rate = [[bp objectAtIndex:2] intValue];
-    cell.textLabel.text = [NSString stringWithFormat:@"%d/%d at %dbpm",sys,dia,rate];
-    cell.imageView.image = [self rateBloodPressure:sys diastolic:dia];
-    NSLog(@"WTF? %@", cell.imageView.image);
-  } else if (indexPath.section == 1) {
-    int bloodSugar = glucose[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%d mg/Dl",bloodSugar];
-    cell.imageView.image = [self rateGlucose:bloodSugar];
+  if (indexPath.section == 0 && indexPath.row == 0 && [bloodPressure count] == 0) {
+    cell.textLabel.text = @" ";
+    cell.detailTextLabel.text = @" ";
+    cell.imageView.image = nil;
   } else {
-    cell.textLabel.text = @"428lbs";
-    // <= goal weight is green, <=start weight is yellow, >start weight is red
-    cell.imageView.image = [UIImage imageNamed:@"status_yellow"];
+    if (indexPath.section == 0) {
+      BloodPressure *bp = [bloodPressure objectAtIndex:indexPath.row];
+      cell.detailTextLabel.text = [self currentTime:bp.created_at];
+      int sys = [bp.systolic intValue];
+      int dia = [bp.diastolic intValue];
+      int rate = [bp.beats intValue];
+      cell.textLabel.text = [NSString stringWithFormat:@"%d/%d at %dbpm",sys,dia,rate];
+      cell.imageView.image = [self rateBloodPressure:sys diastolic:dia];
+    } else if (indexPath.section == 1) {
+      cell.detailTextLabel.text = [self currentTime:nil];
+      int bloodSugar = glucose[indexPath.row];
+      cell.textLabel.text = [NSString stringWithFormat:@"%d mg/Dl",bloodSugar];
+      cell.imageView.image = [self rateGlucose:bloodSugar];
+    } else {
+      cell.detailTextLabel.text = [self currentTime:nil];
+      cell.textLabel.text = @"428lbs";
+      // <= goal weight is green, <=start weight is yellow, >start weight is red
+      cell.imageView.image = [UIImage imageNamed:@"status_yellow"];
+    }
   }
 
   return cell;

@@ -16,4 +16,10 @@
 @dynamic milligrams;
 @dynamic user;
 
++ (NSArray *)getGlucose:(NSManagedObjectContext *)context {
+  NSArray *rval = [self getEntities:context forEntity:@"BloodGlucose" count:5];
+  if(rval == nil) rval = [NSArray new];
+  return rval;
+}
+
 @end

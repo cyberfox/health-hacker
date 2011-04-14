@@ -8,8 +8,9 @@
 
 #import <CoreData/CoreData.h>
 #import "User.h"
+#import "Entity.h"
 
-@interface BloodPressure :  NSManagedObject  
+@interface BloodPressure :  Entity  
 {
 }
 

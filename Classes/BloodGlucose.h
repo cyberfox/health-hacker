@@ -8,14 +8,17 @@
 
 #import <CoreData/CoreData.h>
 #import "User.h"
+#import "Entity.h"
 
-@interface BloodGlucose :  NSManagedObject  
+@interface BloodGlucose :  Entity  
 {
 }
 
 @property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSNumber * milligrams;
 @property (nonatomic, retain) User * user;
+
++ (NSArray *)getGlucose:(NSManagedObjectContext *)context;
 
 @end
 

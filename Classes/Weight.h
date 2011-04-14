@@ -8,14 +8,17 @@
 
 #import <CoreData/CoreData.h>
 #import "User.h"
+#import "Entity.h"
 
-@interface Weight :  NSManagedObject  
+@interface Weight :  Entity  
 {
 }
 
 @property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSDecimalNumber * pounds;
 @property (nonatomic, retain) User * user;
+
++ (NSArray *)getWeight:(NSManagedObjectContext *)context;
 
 @end
 

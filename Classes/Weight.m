@@ -16,4 +16,11 @@
 @dynamic pounds;
 @dynamic user;
 
++ (NSArray *)getWeight:(NSManagedObjectContext *)context {
+  NSArray *rval = [self getEntities:context forEntity:@"Weight" count:5];
+  if(rval == nil) rval = [NSArray new];
+  return rval;
+}
+
+
 @end

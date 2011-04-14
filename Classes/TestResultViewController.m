@@ -8,6 +8,8 @@
 
 #import "TestResultViewController.h"
 #import "BloodPressure.h"
+#import "BloodGlucose.h"
+#import "Weight.h"
 
 @implementation TestResultViewController
 
@@ -35,13 +37,13 @@ UIImage *red;
 */
 
 NSArray *bloodPressure;
+NSArray *glucose;
+NSArray *weights;
 
 - (void)awakeFromNib {
-  bloodPressure = [BloodPressure getBP:self.managedObjectContext];
-  for (BloodPressure *bp in bloodPressure) {
-    NSLog(@"Got: %@/%@", bp.systolic, bp.diastolic);
-  }
-  [bloodPressure retain];
+  bloodPressure = [[BloodPressure getBP:self.managedObjectContext] retain];
+  glucose = [[BloodGlucose getGlucose:self.managedObjectContext] retain];
+  weights = [[Weight getWeight:self.managedObjectContext] retain];
 
   green = [UIImage imageNamed:@"status_green"];
   yellow = [UIImage imageNamed:@"status_yellow"];
@@ -102,18 +104,18 @@ NSArray *bloodPressure;
   return nil;
 }
 
+// Return the number of rows in the section.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  if (section == 0) {
-    return MAX([bloodPressure count], 1);
-  }
-  // Return the number of rows in the section.
-  return (section != 2) ? 2 : 1;
+  NSArray *sections[] = { bloodPressure, glucose, weights };
+  NSArray *currentSection = sections[section];
+  return MAX([currentSection count], 1);
 }
 
 -(void)addBloodPressureReading:(int)heartRate systolic:(int)systolic diastolic:(int)diastolic {
   NSLog(@"Adding blood pressure reading");
   NSLog(@"Adding: %d/%d @ %d!", systolic, diastolic, heartRate);
   [BloodPressure create:self.managedObjectContext systolic:systolic diastolic:diastolic heartRate:heartRate];
+  [bloodPressure release];
   bloodPressure = [BloodPressure getBP:self.managedObjectContext];
   [bloodPressure retain];
   [displayTableView reloadData];
@@ -130,7 +132,6 @@ NSArray *bloodPressure;
   return dateString;
 }
 
-int glucose[] = { 93, 133 };
 // <100 is green, 100-140 is yellow, > 140 is red
 - (UIImage *)rateGlucose:(int) glucose {
   if (glucose < 100) {
@@ -180,7 +181,9 @@ int glucose[] = { 93, 133 };
     cell.accessoryView = nil;
   }
 
-  if (indexPath.section == 0 && indexPath.row == 0 && [bloodPressure count] == 0) {
+  NSArray *sections[] = { bloodPressure, glucose, weights };
+
+  if ([sections[indexPath.section] count] == 0) {
     cell.textLabel.text = @" ";
     cell.detailTextLabel.text = @" ";
     cell.imageView.image = nil;
@@ -195,7 +198,8 @@ int glucose[] = { 93, 133 };
       cell.imageView.image = [self rateBloodPressure:sys diastolic:dia];
     } else if (indexPath.section == 1) {
       cell.detailTextLabel.text = [self currentTime:nil];
-      int bloodSugar = glucose[indexPath.row];
+      BloodGlucose *reading = [glucose objectAtIndex:indexPath.row];
+      int bloodSugar = [reading.milligrams intValue];
       cell.textLabel.text = [NSString stringWithFormat:@"%d mg/Dl",bloodSugar];
       cell.imageView.image = [self rateGlucose:bloodSugar];
     } else {

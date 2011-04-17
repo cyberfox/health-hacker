@@ -5,7 +5,8 @@
 //  Created by Morgan Schweers on 1/18/11.
 //  Copyright 2011 CyberFOX Software, Inc. All rights reserved.
 //
-
+#import <QuartzCore/QuartzCore.h>
+#import "UIKit/UIKit.h"
 #import "TestResultViewController.h"
 #import "BloodPressure.h"
 #import "BloodGlucose.h"
@@ -154,6 +155,54 @@ NSArray *weights;
   }
 }
 
+#define PI 3.14159265358979323846
+#define DEG_TO_RAD(x) (x*PI)/180.0
+
++ (void) drawArc:(double)percentage width:(double)size_x height:(double)size_y {
+  UIColor *outlineColor = [UIColor grayColor];
+  UIColor *completeColor = [UIColor lightGrayColor];
+
+  if (percentage != 0.0) {
+    double endAngle = fmod(360*(percentage/100.0) + 270.0, 360.0);
+    UIBezierPath *greenPath = [UIBezierPath bezierPath];
+
+    [greenPath setLineWidth:1];
+
+    // move to the center so that we have a closed slice
+    // size_x and size_y are the height and width of the view
+    [greenPath moveToPoint:CGPointMake(size_x/2.0, size_y/2.0)];
+
+    // draw an arc
+    [greenPath addArcWithCenter:CGPointMake(size_x/2, size_y/2) radius:(size_x/2.0-1) startAngle:DEG_TO_RAD(270.0) endAngle:DEG_TO_RAD(endAngle) clockwise:YES];
+
+    // close the slice , by drawing a line to the center
+    [greenPath addLineToPoint:CGPointMake(size_x/2.0, size_y/2.0)];
+    //  Outline it...
+    [outlineColor set];
+    [greenPath stroke];
+
+    [completeColor set];
+    // ...and fill it
+    [greenPath fill];
+  }
+
+  //  Always draw the outer circle
+  UIBezierPath *outerPath = [UIBezierPath bezierPath];
+  [outerPath addArcWithCenter:CGPointMake(size_x/2.0, size_y/2.0) radius:(size_x/2.0-1) startAngle:DEG_TO_RAD(0.0) endAngle:DEG_TO_RAD(360.0) clockwise:YES];
+  [outerPath setLineWidth:2];
+  [outlineColor set];
+  [outerPath stroke];
+}
+
++ (UIImage *) drawImage:(double)percent width:(double)width height:(double)height {
+//  CGRect size = CGRectMake(0.0, 0.0, width, height);
+  UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, height), NO, [UIScreen mainScreen].scale);
+  [self drawArc:percent width:width height:height];
+  UIImage *result = UIGraphicsGetImageFromCurrentImageContext();;
+  UIGraphicsEndImageContext();
+  return result;
+}
+
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *CellIdentifier = @"Cell";
@@ -177,8 +226,6 @@ NSArray *weights;
     button.userInteractionEnabled = YES;
     
     cell.accessoryView = button;
-  } else {
-    cell.accessoryView = nil;
   }
 
   NSArray *sections[] = { bloodPressure, glucose, weights };
@@ -186,7 +233,10 @@ NSArray *weights;
   if ([sections[indexPath.section] count] == 0) {
     cell.textLabel.text = @" ";
     cell.detailTextLabel.text = @" ";
-    cell.imageView.image = nil;
+    UIImage *img = [TestResultViewController drawImage:25 width:24.0 height:24.0];
+    cell.imageView.image = img;
+
+//    cell.imageView.image = nil;
   } else {
     if (indexPath.section == 0) {
       BloodPressure *bp = [bloodPressure objectAtIndex:indexPath.row];
@@ -203,10 +253,14 @@ NSArray *weights;
       cell.textLabel.text = [NSString stringWithFormat:@"%d mg/Dl",bloodSugar];
       cell.imageView.image = [self rateGlucose:bloodSugar];
     } else {
+      UIImage *img = [TestResultViewController drawImage:1 width:24.0 height:24.0];
+      cell.imageView.image = img;
+
+      cell.accessoryView = nil;
       cell.detailTextLabel.text = [self currentTime:nil];
       cell.textLabel.text = @"428lbs";
       // <= goal weight is green, <=start weight is yellow, >start weight is red
-      cell.imageView.image = [UIImage imageNamed:@"status_yellow"];
+//      cell.imageView.image = [UIImage imageNamed:@"status_yellow"];
     }
   }
 

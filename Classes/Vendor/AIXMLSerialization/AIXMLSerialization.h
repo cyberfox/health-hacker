@@ -1,5 +1,4 @@
 #import <TargetConditionals.h>
-#import "GDataHealth.h"
 
 #if TARGET_OS_IPHONE
 

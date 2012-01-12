@@ -66,7 +66,7 @@ BOOL pullInitiated=NO;
   if (healthService == nil) {
     [healthService dealloc];
   }
-  healthService = [[GoogleHealth alloc] initWithDelegate:self];
+  healthService = [[HackersHealthService alloc] initWithDelegate:self];
 
   User *currentUser = [User getUser:managedObjectContext_];
   if (currentUser == nil) {

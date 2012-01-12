@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "GoogleHealth.h"
 #import "LoginAlertView.h"
 #import "UIPullToReloadTableViewController.h"
+#import "HackersHealthService.h"
 
-@interface MedicationViewController : UIPullToReloadTableViewController <NSFetchedResultsControllerDelegate, GoogleHealthNotifier, LoginAlertViewDelegate> {
+@interface MedicationViewController : UIPullToReloadTableViewController <NSFetchedResultsControllerDelegate, LoginAlertViewDelegate> {
 
 @private
     NSFetchedResultsController *fetchedResultsController_;
     NSManagedObjectContext *managedObjectContext_;
-    GoogleHealth *healthService;
+    HackersHealthService *healthService;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
